@@ -1,3 +1,3 @@
-# building-management-mern
+# Building Management MERN
 
 - [Live Site]()
