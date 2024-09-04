@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.ibb.co/4Kg7FCg/real-estate-banner-1.jpg",
+    "shortTitle": "Luxury Views",
+    "title": "Stunning Luxury Condos",
+    "details": "Experience breathtaking views and luxurious living in our exclusive condo community. Enjoy top-notch amenities and a prime location."
+  },
+  {
+    "id": 2,
+    "image": "https://i.ibb.co/0pLcJVP/real-estate-banner-2.jpg",
+    "shortTitle": "Modern Neighborhood",
+    "title": "Vibrant Modern Townhomes",
+    "details": "Discover modern living at its finest in our stylish townhomes. Located in a vibrant neighborhood, our homes offer convenience and comfort."
+  },
+  {
+    "id": 3,
+    "image": "https://i.ibb.co/nsFvvKd/real-estate-banner-3.jpg",
+    "shortTitle": "Family Suburb",
+    "title": "Serene Family Homes",
+    "details": "Find your perfect family home in our serene suburban community. Enjoy spacious layouts, friendly neighbors, and a tranquil atmosphere."
+  },
+  {
+    "id": 4,
+    "image": "https://i.ibb.co/mDYFyQm/real-estate-banner-4.jpg",
+    "shortTitle": "Cozy Downtown",
+    "title": "Downtown Cozy Apartments",
+    "details": "Live in the heart of the city in our cozy downtown apartments. Experience urban convenience and vibrant city life right outside your door."
+  }
+]
