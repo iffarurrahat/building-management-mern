@@ -33,6 +33,8 @@ const SignUp = () => {
     //reset error massage
     setErrorMessage("");
 
+    const toastId = toast.loading("Loading...");
+
     try {
       setLoading(true);
 
@@ -46,13 +48,12 @@ const SignUp = () => {
 
       //2. User Registration
       const result = await createUser(email, password);
-      console.log(result);
 
       //3. Save user name and photo in firebase
       await updateUserProfile(name, data.data.display_url);
 
       navigate("/");
-      toast.success("Signup Successful");
+      toast.success("Signup Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
 

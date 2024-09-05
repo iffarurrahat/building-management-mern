@@ -5,13 +5,11 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Drawer from "./Drawer";
 import logoImg from "../../assets/logo.png";
-import logoImg2 from "../../assets/logo2.png";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { user, logOut } = useAuth();
-
+  const { user, logOut, setLoading } = useAuth();
   // New state for drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -28,27 +26,29 @@ const Navbar = () => {
 
   // logout
   const handleSignOut = () => {
-    logOut()
-      .then(() => {
-        toast.success("Logout Successful");
-        setDrawerOpen(false); // Close drawer on logout
-      })
-      .catch((error) => {
-        if (error.message) {
-          toast.error("Something wrong");
-        }
-      });
+    logOut();
+    const toastId = toast.loading("Loading...");
+
+    try {
+      toast.success("Logout Successful", { id: toastId });
+      setDrawerOpen(false); // Close drawer on logout
+    } catch (error) {
+      if (error.message) {
+        setLoading(false);
+        toast.error("Something wrong", { id: toastId });
+      }
+    }
   };
 
   const routes = [
     { id: 1, path: "/", name: "Home" },
-    { id: 4, path: "/about", name: "About" },
+    { id: 2, path: "/about", name: "About" },
     { id: 3, path: "/signup", name: "Signup" },
   ];
 
   // Conditional rendering of login
   if (!user) {
-    routes.push({ id: 3, path: "/signin", name: "Signin" });
+    routes.push({ id: 4, path: "/signin", name: "Signin" });
   }
 
   return (
@@ -58,7 +58,7 @@ const Navbar = () => {
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link to="/">
-            <img src={logoImg2} alt="logo" className="w-32 cursor-pointer" />
+            <img src={logoImg} alt="logo" className="w-32 cursor-pointer" />
           </Link>
           <div>
             <div

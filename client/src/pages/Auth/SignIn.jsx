@@ -11,10 +11,18 @@ import { RiErrorWarningFill } from "react-icons/ri";
 import { ImSpinner10 } from "react-icons/im";
 
 const SignIn = () => {
-  const { userLogin, signInWithGoogle, user, loading, setLoading } = useAuth();
-  const navigate = useNavigate();
+  const {
+    userLogin,
+    signInWithGoogle,
+    resetPassword,
+    user,
+    loading,
+    setLoading,
+  } = useAuth();
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +32,7 @@ const SignIn = () => {
 
     //reset error message
     setErrorMessage("");
+    const toastId = toast.loading("Loading...");
 
     try {
       setLoading(true);
@@ -32,7 +41,7 @@ const SignIn = () => {
       await userLogin(email, password);
 
       navigate("/");
-      toast.success("Login Successful");
+      toast.success("Login Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
 
@@ -41,13 +50,32 @@ const SignIn = () => {
     }
   };
 
+  //Reset password
+  const handleResetPassword = async () => {
+    const toastId = toast.loading("Loading...");
+
+    if (!email)
+      return toast.error("Please write your email first!", { id: toastId });
+
+    try {
+      await resetPassword(email);
+      toast.success("Request Success! Check you email for further process...");
+      setLoading(false);
+    } catch (err) {
+      toast.error(err.message, { id: toastId });
+      setLoading(false);
+    }
+  };
+
   // Google Signin
   const handleGoogleSignIn = async () => {
+    const toastId = toast.loading("Loading...");
+
     try {
       await signInWithGoogle();
 
       navigate("/");
-      toast.success("Login Successful");
+      toast.success("Login Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
 
@@ -85,6 +113,7 @@ const SignIn = () => {
                 <input
                   type="email"
                   name="email"
+                  onBlur={(e) => setEmail(e.target.value)}
                   id="email"
                   required
                   placeholder="Enter Your Email Here"
@@ -141,7 +170,10 @@ const SignIn = () => {
             </p>
           )}
           <div className="space-y-1">
-            <button className="text-xs hover:underline hover:text-primary text-gray-400">
+            <button
+              onClick={handleResetPassword}
+              className="text-xs hover:underline hover:text-primary text-gray-400"
+            >
               Forgot password?
             </button>
           </div>
