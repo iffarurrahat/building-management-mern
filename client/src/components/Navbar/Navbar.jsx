@@ -1,9 +1,11 @@
 import { RiCloseLine, RiMenu2Line } from "react-icons/ri";
 import Container from "../ui/Container";
-import { NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import Drawer from "./Drawer";
+import logoImg from "../../assets/logo.png";
+import logoImg2 from "../../assets/logo2.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -54,11 +56,9 @@ const Navbar = () => {
     >
       <Container>
         <div className="flex items-center justify-between py-4">
-          <img
-            src="https://w7.pngwing.com/pngs/941/692/png-transparent-black-small-apple-logo-logo-material-apple-logo-black-thumbnail.png"
-            alt="logo"
-            className="h-8 w-5"
-          />
+          <Link to="/">
+            <img src={logoImg2} alt="logo" className="w-32 cursor-pointer" />
+          </Link>
           <div>
             <div
               className="md:hidden text-3xl text-primary"
