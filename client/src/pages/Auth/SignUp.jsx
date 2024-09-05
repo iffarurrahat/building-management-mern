@@ -20,6 +20,8 @@ const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
+    const toastId = toast.loading("Loading...");
+
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
@@ -32,8 +34,6 @@ const SignUp = () => {
 
     //reset error massage
     setErrorMessage("");
-
-    const toastId = toast.loading("Loading...");
 
     try {
       setLoading(true);

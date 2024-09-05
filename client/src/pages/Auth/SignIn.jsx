@@ -25,6 +25,7 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    const toastId = toast.loading("Loading...");
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
@@ -32,7 +33,6 @@ const SignIn = () => {
 
     //reset error message
     setErrorMessage("");
-    const toastId = toast.loading("Loading...");
 
     try {
       setLoading(true);
@@ -59,7 +59,9 @@ const SignIn = () => {
 
     try {
       await resetPassword(email);
-      toast.success("Request Success! Check you email for further process...");
+      toast.success("Request Success! Check you email for further process...", {
+        id: toastId,
+      });
       setLoading(false);
     } catch (err) {
       toast.error(err.message, { id: toastId });

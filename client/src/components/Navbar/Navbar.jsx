@@ -42,8 +42,8 @@ const Navbar = () => {
 
   const routes = [
     { id: 1, path: "/", name: "Home" },
-    { id: 2, path: "/about", name: "About" },
-    { id: 3, path: "/signup", name: "Signup" },
+    { id: 2, path: "/apartment", name: "Apartment" },
+    { id: 3, path: "/dashboard", name: "Dashboard" },
   ];
 
   // Conditional rendering of login
@@ -53,24 +53,28 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${navbarBackgroundColor} font-roboto text-xs font-semibold absolute top-0 left-0 right-0 z-50`}
+      className={`${navbarBackgroundColor} font-roboto text-sm font-semibold absolute top-0 left-0 right-0 z-50`}
     >
       <Container>
         <div className="flex items-center justify-between py-4">
           <Link to="/">
-            <img src={logoImg} alt="logo" className="w-32 cursor-pointer" />
+            <img
+              src={logoImg}
+              alt="logo"
+              className="w-20 md:w-28 lg:w-32 cursor-pointer"
+            />
           </Link>
           <div>
             <div
-              className="md:hidden text-3xl text-primary"
+              className="md:hidden text-3xl text-primary cursor-pointer"
               onClick={() => setOpen(!open)}
             >
               {open ? <RiCloseLine /> : <RiMenu2Line />}
             </div>
             <ul
-              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 px-8 md:px-0 rounded-lg ${
+              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 py-8 md:py-0 px-10 rounded-lg ${
                 open
-                  ? "top-20 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3 md:space-y-0"
+                  ? "top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3 md:space-y-0"
                   : "-top-60"
               }`}
             >
@@ -80,7 +84,7 @@ const Navbar = () => {
                     to={route.path}
                     className={({ isActive }) =>
                       isActive && route.name !== "Logout"
-                        ? "bg-primary text-white px-3 py-1 rounded"
+                        ? "border-2 text-[15px] text-white px-3 py-1 rounded"
                         : ""
                     }
                     onClick={route.onClick ? route.onClick : null}
