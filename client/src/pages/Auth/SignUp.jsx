@@ -1,9 +1,56 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import { ImSpinner10 } from "react-icons/im";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useState } from "react";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const SignUp = () => {
-  const handleSubmit = (e) => {
-    //
+  const { createUser, updateUserProfile, loading, setLoading } = useAuth();
+  const navigate = useNavigate();
+  const [registerError, setRegisterError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    const image = form.image.files[0];
+    const formData = new FormData();
+    formData.append("image", image);
+
+    // console.log(name, email, password);
+    // console.log(image);
+
+    try {
+      setLoading(true);
+
+      //1. Upload image and get image url
+      const { data } = await axios.post(
+        `https://api.imgbb.com/1/upload?key=${
+          import.meta.env.VITE_IMGBB_API_KEY
+        }`,
+        formData
+      );
+
+      //2. User Registration
+      const result = await createUser(email, password);
+      console.log(result);
+
+      //3. Save user name and photo in firebase
+      await updateUserProfile(name, data.data.display_url);
+
+      navigate("/");
+      toast.success("Signup Successful");
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
   };
 
   return (
@@ -62,14 +109,14 @@ const SignUp = () => {
                   data-temp-mail-org="0"
                 />
               </div>
-              <div>
+              <div className="relative">
                 <div className="flex justify-between">
                   <label htmlFor="password" className="text-sm mb-1">
                     Password
                   </label>
                 </div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
                   autoComplete="new-password"
                   id="password"
@@ -77,6 +124,16 @@ const SignUp = () => {
                   placeholder="*******"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-primary text-gray-900"
                 />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 top-6 flex items-center pr-3 cursor-pointer"
+                >
+                  {showPassword ? (
+                    <AiFillEye size={14} />
+                  ) : (
+                    <AiFillEyeInvisible size={14} />
+                  )}
+                </span>
               </div>
             </div>
 
@@ -86,12 +143,11 @@ const SignUp = () => {
                 type="submit"
                 className="bg-primary w-full rounded-md py-3 text-white"
               >
-                {/* {loading ? (
-                  <TbFidgetSpinner className="animate-spin m-auto" />
+                {loading ? (
+                  <ImSpinner10 className="animate-spin m-auto" />
                 ) : (
                   "Continue"
-                )} */}
-                Continue
+                )}
               </button>
             </div>
           </form>

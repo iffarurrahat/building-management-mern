@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FcGoogle } from "react-icons/fc";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const SignIn = () => {
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <>
       <Helmet>
@@ -17,11 +20,7 @@ const SignIn = () => {
               Sign in to access your account
             </p>
           </div>
-          <form
-            noValidate=""
-            action=""
-            className="space-y-6 ng-untouched ng-pristine ng-valid"
-          >
+          <form className="space-y-6">
             <div className="space-y-4">
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm">
@@ -37,21 +36,31 @@ const SignIn = () => {
                   data-temp-mail-org="0"
                 />
               </div>
-              <div>
+              <div className="relative">
                 <div className="flex justify-between">
-                  <label htmlFor="password" className="text-sm mb-2">
+                  <label htmlFor="password" className="text-sm mb-1">
                     Password
                   </label>
                 </div>
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   name="password"
-                  autoComplete="current-password"
+                  autoComplete="new-password"
                   id="password"
                   required
                   placeholder="*******"
                   className="w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-primary text-gray-900"
                 />
+                <span
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute inset-y-0 right-0 top-6 flex items-center pr-3 cursor-pointer"
+                >
+                  {showPassword ? (
+                    <AiFillEye size={14} />
+                  ) : (
+                    <AiFillEyeInvisible size={14} />
+                  )}
+                </span>
               </div>
             </div>
 
