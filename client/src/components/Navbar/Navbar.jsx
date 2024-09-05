@@ -6,10 +6,11 @@ import useAuth from "../../hooks/useAuth";
 import Drawer from "./Drawer";
 import logoImg from "../../assets/logo.png";
 import logoImg2 from "../../assets/logo2.png";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { user } = useAuth();
+  const { user, logOut } = useAuth();
 
   // New state for drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -25,19 +26,19 @@ const Navbar = () => {
     }
   }, [location.pathname]);
 
-  // // logout
-  // const handleSignOut = () => {
-  //   logOut()
-  //     .then(() => {
-  //       toast.success("Logout Successful");
-  //       setDrawerOpen(false); // Close drawer on logout
-  //     })
-  //     .catch((error) => {
-  //       if (error.message) {
-  //         toast.error("Something wrong");
-  //       }
-  //     });
-  // };
+  // logout
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Logout Successful");
+        setDrawerOpen(false); // Close drawer on logout
+      })
+      .catch((error) => {
+        if (error.message) {
+          toast.error("Something wrong");
+        }
+      });
+  };
 
   const routes = [
     { id: 1, path: "/", name: "Home" },
@@ -108,7 +109,7 @@ const Navbar = () => {
         isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         user={user}
-        // handleSignOut={handleSignOut} // Pass handleSignOut to Drawer
+        handleSignOut={handleSignOut}
       />
     </div>
   );

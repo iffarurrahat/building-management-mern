@@ -2,15 +2,21 @@ import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner10 } from "react-icons/im";
-import axios from "axios";
+
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { RiErrorWarningFill } from "react-icons/ri";
+import FirebaseError from "../../components/ui/FirebaseError";
+import axios from "axios";
+import Spinner from "../../components/ui/Spinner/Spinner";
+// import FirebaseError from "../../components/ui/FirebaseError";
 
 const SignUp = () => {
-  const { createUser, updateUserProfile, loading, setLoading } = useAuth();
+  const { createUser, updateUserProfile, user, loading, setLoading } =
+    useAuth();
   const navigate = useNavigate();
-  const [registerError, setRegisterError] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -24,8 +30,8 @@ const SignUp = () => {
     const formData = new FormData();
     formData.append("image", image);
 
-    // console.log(name, email, password);
-    // console.log(image);
+    //reset error massage
+    setErrorMessage("");
 
     try {
       setLoading(true);
@@ -48,10 +54,21 @@ const SignUp = () => {
       navigate("/");
       toast.success("Signup Successful");
     } catch (error) {
-      console.log(error);
       setLoading(false);
+
+      const errMessage = error.message;
+
+      // Call FirebaseError directly to handle the error
+      handleFirebaseError(errMessage);
     }
   };
+
+  // Function to handle FirebaseError and update registerError state
+  const handleFirebaseError = (errMessage) => {
+    FirebaseError({ errMessage, setErrorMessage });
+  };
+
+  if (user || loading) <Spinner />;
 
   return (
     <>
@@ -139,7 +156,7 @@ const SignUp = () => {
 
             <div>
               <button
-                // disabled={loading}
+                disabled={loading}
                 type="submit"
                 className="bg-primary w-full rounded-md py-3 text-white"
               >
@@ -149,6 +166,13 @@ const SignUp = () => {
                   "Continue"
                 )}
               </button>
+              {/* Error Message form Firebase */}
+              {errorMessage && (
+                <p className="text-red-600 text-xs flex items-center gap-1 mt-0.5">
+                  <RiErrorWarningFill />
+                  {errorMessage}
+                </p>
+              )}
             </div>
           </form>
 
