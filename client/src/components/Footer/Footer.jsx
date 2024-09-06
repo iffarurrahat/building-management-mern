@@ -77,7 +77,7 @@ const Footer = () => {
               </h3>
             </div>
             <div>
-              <button className="px-5 py-2.5 bg-[#343a40] text-white mt-1.5 sm:mt-0 text-xs md:text-base">
+              <button className="px-5 md:px-6 py-2.5 md:py-3 bg-[#343a40] text-white mt-1.5 sm:mt-0 text-xs md:text-base">
                 Contact Us
               </button>
             </div>
