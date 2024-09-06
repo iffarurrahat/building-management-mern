@@ -1,14 +1,10 @@
 import "./AboutUs.css";
 import Container from "../../ui/Container";
 import { useEffect, useState } from "react";
-// import { RiTeamLine } from "react-icons/ri";
-// import { TbBuildingBank } from "react-icons/tb";
 import { MdPhoneInTalk } from "react-icons/md";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
-// import aboutImg1 from "../../../assets/about-img-1.jpg";
-// import aboutImg2 from "../../../assets/about-img-2.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import {
@@ -33,7 +29,7 @@ const AboutUs = () => {
 
   return (
     <Container>
-      <div className="md:flex gap-12 mt-8 sm:mt-12 md:mt-20 mb-32 w-full">
+      <div className="md:flex gap-12 my-8 sm:my-12 md:my-20 w-full">
         {/* LEFT Side */}
         <div className="md:flex-1 md:w-1/2">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-3 md:mb-6">
@@ -135,42 +131,3 @@ const AboutUs = () => {
 };
 
 export default AboutUs;
-
-/*
-
-      <div className="md:flex-1 mt-6 md:mt-0">
-          <div className="grid grid-cols-2 gap-2.5 sm:gap-5 md:gap-8">
-            <div className="flex items-center justify-center shadow">
-              <div>
-                <RiTeamLine className="text-4xl md:text-5xl mx-auto" />
-                <h2 className="text-lg sm:text-2xl md:text-3xl text-center my-2 md:my-3">
-                  Strong Team
-                </h2>
-                <p className="text-center text-xs md:text-sm text-[#777777] px-2 md:px-5">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor.
-                </p>
-              </div>
-            </div>
-            <div className="">
-              <img src={aboutImg1} alt="about image" />
-            </div>
-            <div className="">
-              <img src={aboutImg2} alt="about image" />
-            </div>
-            <div className="flex items-center justify-center shadow bg-[#222222]">
-              <div>
-                <TbBuildingBank className="text-4xl md:text-5xl mx-auto text-[#4C6275]" />
-                <h2 className="text-lg sm:text-2xl md:text-3xl text-center my-2 md:my-3 text-white">
-                  Luxury Apartment
-                </h2>
-                <p className="text-center text-xs md:text-sm text-white px-2 md:px-5">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-                  do eiusmod tempor.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-*/
