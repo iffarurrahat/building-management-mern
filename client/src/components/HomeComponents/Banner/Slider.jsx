@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Container from "../ui/Container";
+import Container from "../../ui/Container";
 import {
   HiOutlineArrowNarrowLeft,
   HiOutlineArrowNarrowRight,

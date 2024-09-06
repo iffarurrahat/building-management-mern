@@ -19,7 +19,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="mb-96">
+    <div>
       <Slider slides={slides} />
     </div>
   );
