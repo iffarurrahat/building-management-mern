@@ -14,7 +14,7 @@ const Discover = () => {
           <div className="md:flex-1 mt-6 md:mt-0">
             <div className="grid grid-cols-2 gap-2.5 sm:gap-5 md:gap-8">
               <div className="flex items-center justify-center shadow bg-white">
-                <div>
+                <div className="py-8 px-2">
                   <RiTeamLine className="text-4xl md:text-5xl mx-auto" />
                   <h2 className="text-lg sm:text-2xl md:text-3xl text-center my-2 md:my-3">
                     Strong Team
@@ -25,14 +25,22 @@ const Discover = () => {
                   </p>
                 </div>
               </div>
-              <div className="">
-                <img src={aboutImg1} alt="about image" />
+              <div>
+                <img
+                  src={aboutImg1}
+                  alt="about image"
+                  className="sm:w-full sm:h-full object-cover"
+                />
               </div>
-              <div className="">
-                <img src={aboutImg2} alt="about image" />
+              <div>
+                <img
+                  src={aboutImg2}
+                  alt="about image"
+                  className="sm:w-full sm:h-full object-cover"
+                />
               </div>
               <div className="flex items-center justify-center shadow bg-[#222222]">
-                <div>
+                <div className="py-8 px-2">
                   <TbBuildingBank className="text-4xl md:text-5xl mx-auto text-[#4C6275]" />
                   <h2 className="text-lg sm:text-2xl md:text-3xl text-center my-2 md:my-3 text-white">
                     Luxury Apartment
@@ -49,7 +57,7 @@ const Discover = () => {
           <div className="flex md:flex-1 justify-center items-center mt-5 md:mt-0 discover-bottom-img md:px-5">
             <div>
               <h5 className="font-bold text-[#777777]">Design</h5>
-              <h1 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl mt-2 mb-5">
+              <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl mt-2 mb-5 font-serif">
                 Discover Our Apartments.
               </h1>
               <p className="text-[#777777] leading-8">
