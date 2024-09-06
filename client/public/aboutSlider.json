@@ -1,0 +1,18 @@
+[
+  {
+    "_id": 1,
+    "image": "https://images.pexels.com/photos/2102415/pexels-photo-2102415.jpeg?auto=compress&cs=tinysrgb&w=400"
+  },
+  {
+    "_id": 2,
+    "image": "https://images.pexels.com/photos/3205567/pexels-photo-3205567.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "_id": 3,
+    "image": "https://images.pexels.com/photos/3727511/pexels-photo-3727511.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  },
+  {
+    "_id": 4,
+    "image": "https://images.pexels.com/photos/7212947/pexels-photo-7212947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+  }
+]

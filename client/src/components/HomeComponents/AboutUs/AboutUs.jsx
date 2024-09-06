@@ -1,18 +1,41 @@
+import "./AboutUs.css";
 import Container from "../../ui/Container";
+import { useEffect, useState } from "react";
+// import { RiTeamLine } from "react-icons/ri";
+// import { TbBuildingBank } from "react-icons/tb";
 import { MdPhoneInTalk } from "react-icons/md";
-import { RiTeamLine } from "react-icons/ri";
-import { TbBuildingBank } from "react-icons/tb";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { IoMdCheckmarkCircleOutline } from "react-icons/io";
-import aboutImg1 from "../../../assets/about-img-1.jpg";
-import aboutImg2 from "../../../assets/about-img-2.jpg";
+import { HiOutlineArrowNarrowRight } from "react-icons/hi";
+// import aboutImg1 from "../../../assets/about-img-1.jpg";
+// import aboutImg2 from "../../../assets/about-img-2.jpg";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import {
+  EffectCoverflow,
+  Pagination,
+  Navigation,
+  Autoplay,
+} from "swiper/modules";
+
+import "swiper/css";
+import "swiper/swiper-bundle.css";
+import "swiper/css/navigation";
 
 const AboutUs = () => {
+  const [slides, setSlides] = useState([]);
+
+  useEffect(() => {
+    fetch("aboutSlider.json")
+      .then((res) => res.json())
+      .then((data) => setSlides(data));
+  }, []);
+
   return (
     <Container>
-      <div className="md:flex gap-12 mt-8 sm:mt-12 md:mt-20 mb-32">
+      <div className="md:flex gap-12 mt-8 sm:mt-12 md:mt-20 mb-32 w-full">
         {/* LEFT Side */}
-        <div className="md:flex-1">
+        <div className="md:flex-1 md:w-1/2">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 sm:mb-3 md:mb-6">
             About Us
           </h2>
@@ -67,8 +90,55 @@ const AboutUs = () => {
           </button>
         </div>
 
-        {/* LEFT Side */}
-        <div className="md:flex-1 mt-6 md:mt-0">
+        {/* RIGHT Side */}
+        <div className="md:flex-1 md:w-1/2 slider-section mt-8 md:mt-0">
+          <Swiper
+            effect={"coverflow"}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={"auto"}
+            navigation={{
+              nextEl: ".button-next-slide",
+              prevEl: ".button-prev-slide",
+            }}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 50,
+              depth: 150,
+              modifier: 2,
+              slideShadows: true,
+            }}
+            autoplay={{ delay: 5000, disableOnInteraction: false }}
+            loop={true}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="mySwiper"
+          >
+            {slides.map((slide) => (
+              <SwiperSlide key={slide._id}>
+                <div className="testimonialBox">
+                  <img
+                    src={slide.image}
+                    className="h-96 sm:h-[420px] md:h-[500px] lg:h-[550px] w-72 sm:w-80 md:w-96 lg:w-[400px] mx-auto border-r-8 border-primary rounded-xl object-cover overflow-hidden"
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+
+            <div className="button-next-slide absolute bottom-2 right-10 top-[50%] z-10 bg-primary border-2 md:border-4 border-white text-white grid place-items-center cursor-pointer rounded-full w-6 md:w-8 lg:w-10 h-6 md:h-8 lg:h-10">
+              <HiOutlineArrowNarrowRight />
+            </div>
+          </Swiper>
+        </div>
+      </div>
+    </Container>
+  );
+};
+
+export default AboutUs;
+
+/*
+
+      <div className="md:flex-1 mt-6 md:mt-0">
           <div className="grid grid-cols-2 gap-2.5 sm:gap-5 md:gap-8">
             <div className="flex items-center justify-center shadow">
               <div>
@@ -102,9 +172,5 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </div>
-    </Container>
-  );
-};
 
-export default AboutUs;
+*/
