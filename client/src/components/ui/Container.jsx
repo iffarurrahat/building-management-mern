@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 
-const Container = ({ children, className }) => {
+const Container = ({ children }) => {
   return (
     <div
-      className={`w-full max-w-[1250px] px-2 sm:px-3 md:px-5 lg:px-[25px] mx-auto ${className} `}
+      className={`w-full max-w-[1250px] px-1.5 sm:px-3 md:px-5 lg:px-[25px] mx-auto`}
     >
       {children}
     </div>
