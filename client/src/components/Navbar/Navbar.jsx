@@ -74,7 +74,7 @@ const Navbar = () => {
             <ul
               className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 py-8 md:py-0 px-10 rounded-lg ${
                 open
-                  ? "top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3 md:space-y-0"
+                  ? "top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3.5 md:space-y-0"
                   : "-top-60"
               }`}
             >
@@ -84,7 +84,7 @@ const Navbar = () => {
                     to={route.path}
                     className={({ isActive }) =>
                       isActive && route.name !== "Logout"
-                        ? "border-2 text-[15px] text-white px-3 py-1 rounded"
+                        ? "border-2 border-primary md:border-white text-primary md:text-white text-[15px] px-3 py-1 rounded"
                         : ""
                     }
                     onClick={route.onClick ? route.onClick : null}

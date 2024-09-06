@@ -27,22 +27,27 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
             <MdVerified className="text-green-600  text-xl absolute bottom-3 left-[140px]" />
           )}
         </div>
-        <h3 className="text-center mt-2 text-black">
+        <h3 className="text-center mt-2 text-black pointer-events-none uppercase">
           {user?.displayName || "User name not found"}
         </h3>
-        <p className="text-center text-sm text-black">{user?.email}</p>
-        <button
-          onClick={handleSignOut}
-          className="mt-4 w-full py-2 bg-primary text-white rounded"
-        >
-          Logout
-        </button>
-        <button
-          onClick={onClose}
-          className="mt-4 w-full py-2 bg-primary text-white rounded"
-        >
-          Close Drawer
-        </button>
+        <p className="text-center text-sm text-black pointer-events-auto">
+          {user?.email}
+        </p>
+
+        <div className="absolute bottom-4 w-full px-10">
+          <button
+            onClick={handleSignOut}
+            className="w-full py-2 bg-red-600 text-white rounded"
+          >
+            Logout
+          </button>
+          <button
+            onClick={onClose}
+            className="mt-4 w-full py-2 bg-primary text-white rounded"
+          >
+            Close Drawer
+          </button>
+        </div>
       </div>
     </div>
   );
