@@ -3,6 +3,9 @@ import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
 import SignUp from "../pages/Auth/SignUp";
 import SignIn from "../pages/Auth/SignIn";
+import Apartment from "../pages/Apartment/Apartment";
+import PrivateRoute from "./PrivateRoute";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +16,18 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/apartment",
+        element: (
+          <PrivateRoute>
+            <Apartment />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/blogs",
+        element: <Blogs />,
       },
     ],
   },

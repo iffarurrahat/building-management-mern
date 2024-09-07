@@ -2,8 +2,13 @@ import "./Spinner.css";
 
 const Spinner = () => {
   return (
-    <>
-      <svg viewBox="0 0 240 240" height="240" width="240" className="pl">
+    <div className="flex justify-center items-center h-[60vh] mt-20">
+      <svg
+        viewBox="0 0 240 240"
+        height="140"
+        width="140"
+        // className="h-32 sm:h-40 md:h-52 lg:h-60 w-32 sm:w-40 md:w-52 lg:w-60"
+      >
         <circle
           strokeLinecap="round"
           strokeDashoffset="-330"
@@ -51,7 +56,7 @@ const Spinner = () => {
           className="pl__ring pl__ring--d"
         ></circle>
       </svg>
-    </>
+    </div>
   );
 };
 
