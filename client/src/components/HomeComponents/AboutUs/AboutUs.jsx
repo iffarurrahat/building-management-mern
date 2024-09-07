@@ -101,7 +101,7 @@ const AboutUs = () => {
               rotate: 0,
               stretch: 50,
               depth: 150,
-              modifier: 2,
+              modifier: 3,
               slideShadows: true,
             }}
             autoplay={{ delay: 5000, disableOnInteraction: false }}

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FcGoogle } from "react-icons/fc";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import FirebaseError from "../../components/ui/FirebaseError";
@@ -23,6 +23,8 @@ const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const handleSubmit = async (e) => {
     const toastId = toast.loading("Loading...");
@@ -40,7 +42,7 @@ const SignIn = () => {
       //1. sign in user
       await userLogin(email, password);
 
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Login Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
@@ -76,7 +78,7 @@ const SignIn = () => {
     try {
       await signInWithGoogle();
 
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Login Successful", { id: toastId });
     } catch (error) {
       setLoading(false);

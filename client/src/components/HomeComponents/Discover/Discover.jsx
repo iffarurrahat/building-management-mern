@@ -60,7 +60,7 @@ const Discover = () => {
               <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-8xl mt-2 mb-5 font-serif">
                 Discover Our Apartments.
               </h1>
-              <p className="text-[#777777] leading-8">
+              <p className="text-[#777777] text-base leading-8 md:text-lg md:leading-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris

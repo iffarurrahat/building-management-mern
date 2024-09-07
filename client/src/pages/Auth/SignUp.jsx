@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner10 } from "react-icons/im";
 
@@ -15,9 +15,12 @@ import Spinner from "../../components/ui/Spinner/Spinner";
 const SignUp = () => {
   const { createUser, updateUserProfile, user, loading, setLoading } =
     useAuth();
-  const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state || "/";
 
   const handleSubmit = async (e) => {
     const toastId = toast.loading("Loading...");
@@ -47,12 +50,12 @@ const SignUp = () => {
       );
 
       //2. User Registration
-      const result = await createUser(email, password);
+      await createUser(email, password);
 
       //3. Save user name and photo in firebase
       await updateUserProfile(name, data.data.display_url);
 
-      navigate("/");
+      navigate(from, { replace: true });
       toast.success("Signup Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
