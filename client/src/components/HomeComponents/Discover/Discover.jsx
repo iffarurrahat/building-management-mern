@@ -7,7 +7,7 @@ import "./Discover.css";
 
 const Discover = () => {
   return (
-    <div className="relative py-10 md:py-16 mb-32">
+    <div className="relative py-10 md:py-16 mb-8 sm:mb-12 md:mb-20">
       <Container>
         <div className="md:flex gap-10">
           {/* Left Side */}

@@ -7,7 +7,7 @@ import logoImg from "./../../assets/logo.png";
 
 const Footer = () => {
   return (
-    <div className=" relative mt-96">
+    <div className=" relative">
       <div className="bg-[#141d2a] pt-32 pb-12 sm:pb-20 md:pb-32">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">

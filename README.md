@@ -8,6 +8,7 @@
 - React-Router
 - React-Icons
 - React-Hot-Toast
+- React-Spinner
 - Prop-Types
 - Tailwind CSS
 - Swiper

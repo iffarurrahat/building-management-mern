@@ -1,0 +1,4 @@
+.swiper-slide-active .slider-active-color img {
+  filter: brightness(0) saturate(100%) invert(45%) sepia(84%) saturate(5311%)
+    hue-rotate(222deg) brightness(97%) contrast(101%);
+}
