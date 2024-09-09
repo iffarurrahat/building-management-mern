@@ -30,9 +30,26 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     await client.connect();
 
-    /*
-    // write your code 
-    */
+    const roomsCollection = client.db("buildingDB").collection("rooms");
+
+    // Get all rooms data from db
+    app.get("/rooms", async (req, res) => {
+      const size = parseInt(req.query.size);
+      const page = parseInt(req.query.page) - 1;
+
+      const result = await roomsCollection
+        .find()
+        .skip(page * size)
+        .limit(size)
+        .toArray();
+      res.send(result);
+    });
+
+    // Get all rooms data count from db
+    app.get("/rooms-count", async (req, res) => {
+      const count = await roomsCollection.countDocuments();
+      res.send({ count });
+    });
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

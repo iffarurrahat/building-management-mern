@@ -6,15 +6,15 @@ const RoomCard = ({ room }) => {
   const { image, rent, apartmentNo, floorNo, blockName } = room || {};
   return (
     <div className="flex flex-col items-center justify-center w-full max-w-sm mx-auto image-modifier">
-      <div className="image-style">
+      <div className="image-style w-full">
         <img
           src={image}
-          className="w-full object-cover rounded-lg shadow-md h-48 sm:h-56 md:h-60 lg:h-64 image-effect"
+          className="object-cover rounded-lg shadow-md h-48 sm:h-56 md:h-60 lg:h-64 w-full image-effect"
           alt=""
         />
       </div>
 
-      <div className="w-56 md:w-64 -mt-20 overflow-hidden bg-white rounded-lg shadow-lg z-50">
+      <div className="w-4/5 sm:w-3/4 md:w-4/5 lg:w-3/4 -mt-20 overflow-hidden bg-white rounded-lg shadow-lg z-50">
         <h3 className="pt-2 md:font-medium tracking-wide px-3 text-primary">
           Apartment No {apartmentNo}
         </h3>
