@@ -88,42 +88,48 @@ const AboutUs = () => {
 
         {/* RIGHT Side */}
         <div className="md:flex-1 md:w-1/2 slider-section mt-8 md:mt-0">
-          <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-            navigation={{
-              nextEl: ".button-next-slide",
-              prevEl: ".button-prev-slide",
-            }}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 50,
-              depth: 150,
-              modifier: 3,
-              slideShadows: true,
-            }}
-            autoplay={{ delay: 5000, disableOnInteraction: false }}
-            loop={true}
-            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
-            className="mySwiper"
-          >
-            {slides.map((slide) => (
-              <SwiperSlide key={slide._id}>
-                <div className="testimonialBox">
-                  <img
-                    src={slide.image}
-                    className="h-96 sm:h-[420px] md:h-[500px] lg:h-[550px] w-72 sm:w-80 md:w-96 lg:w-[400px] mx-auto border-r-8 border-primary rounded-xl object-cover overflow-hidden"
-                  />
-                </div>
-              </SwiperSlide>
-            ))}
+          {slides.length > 0 && (
+            <Swiper
+              effect={"coverflow"}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={"auto"}
+              navigation={{
+                prevEl: ".button-prev-slide",
+              }}
+              coverflowEffect={{
+                rotate: 0,
+                stretch: 50,
+                depth: 200,
+                modifier: 3,
+              }}
+              autoplay={{
+                delay: 5000,
+                disableOnInteraction: false,
+                reverseDirection: true, // Ensures autoplay moves forward to the right
+              }}
+              loop={true}
+              modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+              className="mySwiper"
+            >
+              {slides.map((slide) => (
+                <SwiperSlide key={slide._id}>
+                  <div className="testimonialBox">
+                    <img
+                      src={slide.image}
+                      className="h-96 sm:h-[420px] md:h-[500px] lg:h-[550px] w-72 sm:w-80 md:w-96 lg:w-[400px] mx-auto border-r-8 border-primary rounded-xl object-cover overflow-hidden"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
 
-            <div className="button-next-slide absolute bottom-2 right-10 top-[50%] z-10 bg-primary border-2 md:border-4 border-white text-white grid place-items-center cursor-pointer rounded-full w-6 md:w-8 lg:w-10 h-6 md:h-8 lg:h-10">
-              <HiOutlineArrowNarrowRight />
-            </div>
-          </Swiper>
+              <div className="button-prev-slide absolute bottom-2 right-10 top-[50%] z-10 bg-primary border-2 md:border-4 border-white text-white grid place-items-center cursor-pointer rounded-full w-6 md:w-8 lg:w-10 h-6 md:h-8 lg:h-10">
+                <span className="button-prev">
+                  <HiOutlineArrowNarrowRight />
+                </span>
+              </div>
+            </Swiper>
+          )}
         </div>
       </div>
     </Container>
