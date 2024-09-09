@@ -1,14 +1,9 @@
 import "./PartnerSection.css";
-
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-
-// import required modules
-import { Autoplay, EffectFade } from "swiper/modules";
 import Container from "../../ui/Container";
+
+import { Autoplay, EffectFade } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 const images = [
   {
@@ -44,7 +39,7 @@ const images = [
 
 const PartnerSection = () => {
   return (
-    <div className="mb-36">
+    <div>
       <Container>
         <Swiper
           spaceBetween={30}

@@ -20,7 +20,7 @@ const Navbar = () => {
     if (location.pathname === "/") {
       setNavbarBackgroundColor("md:text-white");
     } else {
-      setNavbarBackgroundColor("shadow ");
+      setNavbarBackgroundColor("md:text-white");
     }
   }, [location.pathname]);
 
@@ -84,10 +84,8 @@ const Navbar = () => {
                   <NavLink
                     to={route.path}
                     className={({ isActive }) =>
-                      isActive
-                        ? route.path === "/"
-                          ? "border-2 border-primary md:border-white text-primary md:text-white text-[15px] px-3 py-1 rounded" // Home route styles
-                          : "border-2 border-black text-black md:border-black md:text-black text-[15px] px-3 py-1 rounded" // Other routes styles
+                      isActive && route.name !== "Logout"
+                        ? "border-2 border-primary md:border-white text-primary md:text-white text-[15px] px-3 py-1 rounded"
                         : ""
                     }
                     onClick={route.onClick ? route.onClick : null}
