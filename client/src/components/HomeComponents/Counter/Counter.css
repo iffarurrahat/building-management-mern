@@ -1,0 +1,38 @@
+.counter {
+  background-image: url("../../../assets/counter-bg.png");
+
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-color: #222222;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+}
+
+.thumb {
+  margin-bottom: 20px;
+  padding-top: 25px;
+  padding-right: 25px;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+}
+
+.thumb::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(170, 170, 170, 0)),
+    to(#999)
+  );
+  background: linear-gradient(rgba(170, 170, 170, 0) 0%, #999 100%);
+  z-index: -1;
+}
