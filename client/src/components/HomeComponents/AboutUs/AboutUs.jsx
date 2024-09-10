@@ -36,12 +36,13 @@ const AboutUs = () => {
             About Us
           </h2>
           <p className="text-[#6E7070] text-base leading-8 md:text-lg md:leading-10">
-            We are a real estate firm with over 20 years of expertise, and our
-            main goal is to provide amazing locations to our partners and
-            clients. Within the luxury real estate market, our agency offers
-            customized solutions. We are a real estate firm with over 20 years
-            of expertise. Our main goal is to provide amazing locations to our
-            partners and clients.
+            Our company specializes in comprehensive building management
+            solutions, ensuring that every aspect of your property is handled
+            with utmost care and professionalism. We take pride in offering
+            personalized services tailored to meet the needs of single-building
+            owners, providing peace of mind and seamless operations for every
+            tenant and owner alike. Trust us to maintain your property to the
+            highest standards.
           </p>
           <div className="flex justify-between mt-4 md:mt-8">
             <div>

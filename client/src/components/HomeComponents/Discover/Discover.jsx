@@ -20,8 +20,8 @@ const Discover = () => {
                     Strong Team
                   </h2>
                   <p className="text-center text-xs md:text-sm text-[#777777] px-2 md:px-5">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor.
+                    Our dedicated team delivers professional, reliable, and
+                    timely building management solutions.
                   </p>
                 </div>
               </div>
@@ -46,8 +46,8 @@ const Discover = () => {
                     Luxury Apartment
                   </h2>
                   <p className="text-center text-xs md:text-sm text-white px-2 md:px-5">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor.
+                    Experience modern, elegant living with premium amenities in
+                    our luxury apartments.
                   </p>
                 </div>
               </div>
@@ -61,10 +61,11 @@ const Discover = () => {
                 Discover Our Apartments.
               </h1>
               <p className="text-[#777777] text-base leading-8 md:text-lg md:leading-10">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                Explore our thoughtfully designed apartments, crafted with
+                modern architecture and premium materials. Each unit offers
+                spacious layouts, stylish interiors, and high-end finishes,
+                ensuring comfort and elegance. Experience an exceptional living
+                environment tailored to your lifestyle
               </p>
               <button className="bg-[#4C6275] text-white px-5 md:px-8 py-2.5 md:py-4 rounded mt-4 md:mt-8 text-xs md:text-base font-medium">
                 Book Now

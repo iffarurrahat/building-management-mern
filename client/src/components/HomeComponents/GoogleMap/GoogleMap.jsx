@@ -4,12 +4,12 @@ import { MdEmail } from "react-icons/md";
 
 const GoogleMap = () => {
   return (
-    <div className="mb-80 md:mb-96">
+    <div className="mb-56 sm:mb-60 md:mb-72 lg:mb-96">
       <Container>
-        <div className="md:flex relative">
+        <div className="lg:flex relative">
           {/* first part */}
-          <div className="md:w-3/5 md:p-10">
-            <div className="font-serif uppercase font-medium mb-4 md:mb-8">
+          <div className="lg:w-3/5 md:p-10">
+            <div className="font-serif uppercase font-medium mb-4 md:mb-8 text-center md:text-start">
               <p className="text-xs md:text-sm text-primary mb-1 md:mb-2">
                 visit the property
               </p>
@@ -18,16 +18,16 @@ const GoogleMap = () => {
               </h2>
             </div>
 
-            <div className="md:flex gap-8 ">
+            <div className="lg:flex gap-8 ">
               <div className="md:flex items-center gap-5">
-                <div className="">
+                <div className="flex justify-center md:justify-start">
                   <img
                     src="https://i.ibb.co.com/L5pkrFT/Kevin-Smith.png"
                     alt="image"
                     className="border-2 border-primary p-1.5 rounded-full  object-cover"
                   />
                 </div>
-                <div>
+                <div className="text-center md:text-start">
                   <h4 className="text-2xl md:text-3xl font-thin italic">
                     Kevin Smith
                   </h4>
@@ -36,41 +36,49 @@ const GoogleMap = () => {
                   </p>
                 </div>
               </div>
-              <div className="md:w-1/2 mt-1.5 md:mt-3">
+              <div className="lg:w-1/2 mt-1.5 md:mt-3 text-center md:text-start">
                 <p className="text-[#6E7070] text-base leading-7 md:text-lg md:leading-9">
-                  Lorem ipsum dolor sit amet, consecte adipiscing elit. In hac
-                  habitasse platea dictumst. Duis porta ultrices.
+                  Contact Kevin Smith, Certified Agent, to schedule your
+                  property visit and explore available options.
                 </p>
               </div>
             </div>
 
-            <div className="md:flex mt-5">
-              <div className="flex items-center gap-3 w-full">
-                <div className="bg-primary/10 p-4 md:p-5">
-                  <FaPhoneAlt className="text-primary" />
+            <div className="flex items-center mt-5">
+              <div className="md:flex items-center gap-3 w-full">
+                <div className="flex justify-center md:justify-start mb-2 md:mb-0">
+                  <p className="bg-primary/10 p-4 md:p-5">
+                    <FaPhoneAlt className="text-primary" />
+                  </p>
                 </div>
-                <div className="font-medium">
-                  <p className="mb-0.5 text-[#6E7070] text-sm md:text-base">
+                <div className="font-medium text-center md:text-start">
+                  <p className="mb-0.5 text-[#6E7070] text-xs sm:text-sm md:text-base">
                     Have any question?
                   </p>
-                  <h5 className="md:text-lg">Free +72 (8800) - 8870</h5>
+                  <h5 className="text-xs sm:text-sm md:text-lg">
+                    Free +72 (8800) - 8870
+                  </h5>
                 </div>
               </div>
-              <div className="flex items-center gap-3 w-full mt-4 md:mt-0">
-                <div className="bg-primary/10 p-4 md:p-5">
-                  <MdEmail className="text-primary" />
+              <div className="md:flex items-center gap-3 w-full">
+                <div className="flex justify-center md:justify-start mb-2 md:mb-0">
+                  <p className="bg-primary/10 p-4 md:p-5">
+                    <MdEmail className="text-primary" />
+                  </p>
                 </div>
-                <div className="font-medium">
-                  <p className="mb-0.5 text-[#6E7070] text-sm md:text-base">
+                <div className="font-medium text-center md:text-start">
+                  <p className="mb-0.5 text-[#6E7070] text-xs sm:text-sm md:text-base">
                     Write email
                   </p>
-                  <h5 className="md:text-lg">needhelp@company.com</h5>
+                  <h5 className="text-xs sm:text-sm md:text-lg">
+                    needhelp@company.com
+                  </h5>
                 </div>
               </div>
             </div>
           </div>
           {/* second part */}
-          <div className="md:w-2/5 bg-[url(https://pixydrops.com/alipes/main-html/assets/images/backgrounds/contact-form-bg-img-1.jpg)] mt-5 md:mt-0">
+          <div className="lg:w-2/5 bg-[url(https://pixydrops.com/alipes/main-html/assets/images/backgrounds/contact-form-bg-img-1.jpg)] mt-5 md:mt-0">
             <div className="w-full mx-auto overflow-hidden bg-primary bg-opacity-80 h-full">
               <div className="p-10 sm:p-12 md:p-14 lg:p-16">
                 <div className="uppercase text-white mb-8 font-mono">
@@ -120,15 +128,17 @@ const GoogleMap = () => {
           </div>
         </div>
       </Container>
+
       {/* map */}
-      <div className="bg-slate-600/30 w-full h-[500px] absolute -mt-52 -z-50 grayscale ">
+      <div className="bg-slate-600/30 w-full absolute -mt-52 -z-50 grayscale ">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.757286497821!2d-90.08680172509972!3d29.928888924037736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5cd594cf40b%3A0x6bb2c38c427551bf!2s1403%20Washington%20Ave%2C%20New%20Orleans%2C%20LA%2070115%2C%20USA!5e0!3m2!1sen!2sbd!4v1725978534923!5m2!1sen!2sbd"
           width="100%"
-          height="500"
+          // height="500"
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
+          className="h-96 md:h-[450px] lg:h-[500px]"
         ></iframe>
       </div>
     </div>
