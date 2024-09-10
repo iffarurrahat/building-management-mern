@@ -1,0 +1,10 @@
+.testimonial__wrapper {
+  background-image: url("../../../assets/background.png"),
+    url("../../../assets/icon.png");
+
+  background-color: #8c52ff;
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, auto;
+  background-position: right bottom, top 60px right 40%;
+  position: relative;
+}
