@@ -2,7 +2,7 @@
 
 ## Website Live URL: [Building Management]()
 
-#### 📢 Admin User Email:
+#### 📢 Admin User Email: user.admin01@gmail.com
 
 #### 📢 Admin User Password:
 
