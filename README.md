@@ -4,7 +4,7 @@
 
 #### 📢 Admin User Email: user.admin01@gmail.com
 
-#### 📢 Admin User Password:
+#### 📢 Admin User Password: 123456
 
 ## About To Building Management
 
