@@ -1,12 +1,12 @@
 import "./Counter.css";
-import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import Container from "../../ui/Container";
+import { ImHappy } from "react-icons/im";
+import { FaArchway } from "react-icons/fa";
 import { PiHouseBold } from "react-icons/pi";
 import { SiBandsintown } from "react-icons/si";
-import { FaLaptopHouse } from "react-icons/fa";
-import { MdFireHydrantAlt } from "react-icons/md";
-import { ImHappy } from "react-icons/im";
+import { FaBuildingColumns } from "react-icons/fa6";
+import { useEffect, useRef, useState } from "react";
 
 // Custom hook to detect when an element is in the viewport
 const useOnScreen = (ref) => {
@@ -65,8 +65,8 @@ const Counter = () => {
             <div ref={counterRef}>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center my-1.5 md:my-3">
                 {counterOn && (
-                  <CountUp start={0} end={20500} duration={2} delay={0} />
-                )}
+                  <CountUp start={0} end={20500} duration={4} delay={0} />
+                )}{" "}
                 +
               </p>
             </div>
@@ -77,14 +77,14 @@ const Counter = () => {
           <div className="p-2 md:p-5 text-white">
             <div className="flex justify-center">
               <p className="thumb">
-                <FaLaptopHouse className="text-5xl" />
+                <FaBuildingColumns className="text-5xl" />
               </p>
             </div>
             <div ref={counterRef}>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center my-1.5 md:my-3">
                 {counterOn && (
-                  <CountUp start={0} end={7600} duration={2} delay={0} />
-                )}
+                  <CountUp start={0} end={7600} duration={4} delay={0} />
+                )}{" "}
                 +
               </p>
             </div>
@@ -95,14 +95,14 @@ const Counter = () => {
           <div className="p-2 md:p-5 text-white">
             <div className="flex justify-center">
               <p className="thumb">
-                <MdFireHydrantAlt className="text-5xl" />
+                <FaArchway className="text-5xl" />
               </p>
             </div>
             <div ref={counterRef}>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center my-1.5 md:my-3">
                 {counterOn && (
-                  <CountUp start={0} end={20500} duration={2} delay={0} />
-                )}
+                  <CountUp start={0} end={20500} duration={4} delay={0} />
+                )}{" "}
                 +
               </p>
             </div>
@@ -119,8 +119,8 @@ const Counter = () => {
             <div ref={counterRef}>
               <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center  my-1.5 md:my-3">
                 {counterOn && (
-                  <CountUp start={0} end={20500} duration={2} delay={0} />
-                )}
+                  <CountUp start={0} end={20500} duration={4} delay={0} />
+                )}{" "}
                 +
               </p>
             </div>
