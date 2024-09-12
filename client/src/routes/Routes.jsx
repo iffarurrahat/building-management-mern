@@ -6,6 +6,7 @@ import SignIn from "../pages/Auth/SignIn";
 import Apartment from "../pages/Apartment/Apartment";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../pages/Blogs/Blogs";
+import DashboardLayout from "../layout/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path: "/signin",
     element: <SignIn />,
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
   },
 ]);
 
