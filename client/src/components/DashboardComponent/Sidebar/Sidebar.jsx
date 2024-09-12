@@ -1,13 +1,15 @@
 import { useState } from "react";
-import { GrLogout } from "react-icons/gr";
-import { FcSettings } from "react-icons/fc";
-import { BsFillHouseAddFill } from "react-icons/bs";
-import { AiOutlineBars } from "react-icons/ai";
-import { BsGraphUp } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
 import { Link } from "react-router-dom";
-import { MdHomeWork } from "react-icons/md";
+import { NavLink } from "react-router-dom";
+import { GrLogout } from "react-icons/gr";
+import { BsGraphUp } from "react-icons/bs";
+import { ImProfile } from "react-icons/im";
+import { FaHistory } from "react-icons/fa";
+import { MdPayment } from "react-icons/md";
+import { AiOutlineBars } from "react-icons/ai";
+import { TfiAnnouncement } from "react-icons/tfi";
+
+import useAuth from "../../../hooks/useAuth";
 import logoImg from "../../../assets/logo.png";
 
 const Sidebar = () => {
@@ -72,7 +74,8 @@ const Sidebar = () => {
             <nav>
               {/* Statistics */}
               <NavLink
-                to="statistics"
+                to="/dashboard"
+                end
                 className={({ isActive }) =>
                   `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                     isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
@@ -84,31 +87,60 @@ const Sidebar = () => {
                 <span className="mx-4 font-medium">Statistics</span>
               </NavLink>
 
-              {/* Add Room */}
+              {/* My Profile */}
               <NavLink
-                to="add-room"
+                to="my-profile"
                 className={({ isActive }) =>
                   `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                     isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
                   }`
                 }
               >
-                <BsFillHouseAddFill className="w-5 h-5" />
+                <ImProfile className="w-5 h-5" />
 
-                <span className="mx-4 font-medium">Add Room</span>
+                <span className="mx-4 font-medium">My Profile</span>
               </NavLink>
-              {/* My Listing */}
+
+              {/* Make payment */}
               <NavLink
-                to="my-listings"
+                to="make-payment"
                 className={({ isActive }) =>
                   `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
                     isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
                   }`
                 }
               >
-                <MdHomeWork className="w-5 h-5" />
+                <MdPayment className="w-5 h-5" />
 
-                <span className="mx-4 font-medium">My Listings</span>
+                <span className="mx-4 font-medium">Make payment</span>
+              </NavLink>
+
+              {/* Payment history */}
+              <NavLink
+                to="payment-history"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+                  }`
+                }
+              >
+                <FaHistory className="w-5 h-5" />
+
+                <span className="mx-4 font-medium">Payment History</span>
+              </NavLink>
+
+              {/* Announcements */}
+              <NavLink
+                to="announcements"
+                className={({ isActive }) =>
+                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
+                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
+                  }`
+                }
+              >
+                <TfiAnnouncement className="w-5 h-5" />
+
+                <span className="mx-4 font-medium">Announcements</span>
               </NavLink>
             </nav>
           </div>
@@ -116,20 +148,6 @@ const Sidebar = () => {
 
         <div>
           <hr />
-
-          {/* Profile Menu */}
-          <NavLink
-            to="/dashboard/profile"
-            className={({ isActive }) =>
-              `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-              }`
-            }
-          >
-            <FcSettings className="w-5 h-5" />
-
-            <span className="mx-4 font-medium">Profile</span>
-          </NavLink>
           <button
             onClick={logOut}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"

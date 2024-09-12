@@ -7,6 +7,8 @@ import Apartment from "../pages/Apartment/Apartment";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../pages/Blogs/Blogs";
 import DashboardLayout from "../layout/DashboardLayout";
+import Statistics from "../pages/Dashboard/Common/Statistics";
+import MyProfile from "../pages/Dashboard/Common/MyProfile";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,16 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Statistics />,
+      },
+      {
+        path: "my-profile",
+        element: <MyProfile />,
+      },
+    ],
   },
 ]);
 

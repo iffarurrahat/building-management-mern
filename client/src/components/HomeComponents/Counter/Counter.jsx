@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import "./Counter.css";
 import CountUp from "react-countup";
 import Container from "../../ui/Container";
