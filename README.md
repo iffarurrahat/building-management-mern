@@ -4,7 +4,7 @@
 
 #### 📢 Admin User Email: user.admin201@gmail.com
 
-#### 📢 Admin User Password: password
+#### 📢 Admin User Password: password bolbo nha
 
 ## About To Building Management
 
