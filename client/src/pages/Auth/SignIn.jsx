@@ -46,6 +46,7 @@ const SignIn = () => {
       toast.success("Login Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
+      toast.dismiss(toastId); // Stop the loading toast
 
       const errMessage = error.message;
       handleFirebaseError(errMessage);
@@ -68,6 +69,7 @@ const SignIn = () => {
     } catch (err) {
       toast.error(err.message, { id: toastId });
       setLoading(false);
+      toast.dismiss(toastId); // Stop the loading toast
     }
   };
 
@@ -82,6 +84,7 @@ const SignIn = () => {
       toast.success("Login Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
+      toast.dismiss(toastId); // Stop the loading toast
 
       const errMessage = error.message;
       handleFirebaseError(errMessage);
@@ -101,7 +104,7 @@ const SignIn = () => {
       </Helmet>
 
       <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100/25 text-gray-900">
+        <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100/30 text-gray-900">
           <div className="mb-8 text-center">
             <h1 className="my-3 text-4xl font-bold">Log In</h1>
             <p className="text-sm text-gray-400">

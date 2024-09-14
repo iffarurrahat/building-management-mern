@@ -59,6 +59,7 @@ const SignUp = () => {
       toast.success("Signup Successful", { id: toastId });
     } catch (error) {
       setLoading(false);
+      toast.dismiss(toastId); // Stop the loading toast
 
       const errMessage = error.message;
 
