@@ -31,6 +31,36 @@ async function run() {
     await client.connect();
 
     const roomsCollection = client.db("buildingDB").collection("rooms");
+    const usersCollection = client.db("buildingDB").collection("users");
+
+    //save a user data in db
+    app.put("/user", async (req, res) => {
+      const user = req.body;
+
+      // check if user already exists in db
+      const isExist = await usersCollection.findOne({ email: user?.email });
+      if (isExist) return res.send(isExist);
+
+      // save user from the first time
+      const options = { upsert: true };
+      const query = { email: user?.email };
+
+      const updateDoc = {
+        $set: {
+          ...user,
+          timestamp: Date.now(),
+        },
+      };
+
+      const result = await usersCollection.updateOne(query, updateDoc, options);
+      res.send(result);
+    });
+
+    // get all users data from db
+    app.get("/users", async (req, res) => {
+      const result = await usersCollection.find().toArray();
+      res.send(result);
+    });
 
     // Get all rooms data from db
     app.get("/rooms", async (req, res) => {
