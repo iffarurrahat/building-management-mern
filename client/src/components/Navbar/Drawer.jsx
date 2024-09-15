@@ -6,7 +6,7 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
     <div
       className={`fixed top-0 right-0 w-64 bg-white h-full shadow-lg transform ${
         isOpen ? "translate-x-0" : "translate-x-full"
-      } transition-transform duration-300 ease-in-out`}
+      } transition-transform duration-300 ease-in-out z-50`}
     >
       <div className="p-4 flex items-center justify-between text-black">
         <h2 className="text-xl font-semibold">Profile</h2>
@@ -36,16 +36,17 @@ const Drawer = ({ isOpen, onClose, user, handleSignOut }) => {
 
         <div className="absolute bottom-4 w-full px-10">
           <button
+            onClick={onClose}
+            className="mb-4 w-full py-2 bg-primary text-white rounded"
+          >
+            Close Drawer
+          </button>
+
+          <button
             onClick={handleSignOut}
             className="w-full py-2 bg-red-600 text-white rounded"
           >
             Logout
-          </button>
-          <button
-            onClick={onClose}
-            className="mt-4 w-full py-2 bg-primary text-white rounded"
-          >
-            Close Drawer
           </button>
         </div>
       </div>

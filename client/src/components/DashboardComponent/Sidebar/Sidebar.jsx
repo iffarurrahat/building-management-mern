@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import { BsGraphUp } from "react-icons/bs";
 import { ImProfile } from "react-icons/im";
@@ -11,6 +10,7 @@ import { TfiAnnouncement } from "react-icons/tfi";
 
 import useAuth from "../../../hooks/useAuth";
 import logoImg from "../../../assets/logo.png";
+import MenuItem from "./Menu/MenuItem";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
@@ -73,75 +73,39 @@ const Sidebar = () => {
             {/*  Menu Items */}
             <nav>
               {/* Statistics */}
-              <NavLink
-                to="/dashboard"
-                end
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <BsGraphUp className="w-5 h-5" />
-
-                <span className="mx-4 font-medium">Statistics</span>
-              </NavLink>
+              <MenuItem
+                label="Statistics"
+                address="/dashboard"
+                icon={BsGraphUp}
+              />
 
               {/* My Profile */}
-              <NavLink
-                to="my-profile"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <ImProfile className="w-5 h-5" />
-
-                <span className="mx-4 font-medium">My Profile</span>
-              </NavLink>
+              <MenuItem
+                label="My Profile"
+                address="my-profile"
+                icon={ImProfile}
+              />
 
               {/* Make payment */}
-              <NavLink
-                to="make-payment"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <MdPayment className="w-5 h-5" />
-
-                <span className="mx-4 font-medium">Make payment</span>
-              </NavLink>
+              <MenuItem
+                label="Make Payment"
+                address="make-payment"
+                icon={MdPayment}
+              />
 
               {/* Payment history */}
-              <NavLink
-                to="payment-history"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <FaHistory className="w-5 h-5" />
-
-                <span className="mx-4 font-medium">Payment History</span>
-              </NavLink>
+              <MenuItem
+                label="Payment History"
+                address="payment-history"
+                icon={FaHistory}
+              />
 
               {/* Announcements */}
-              <NavLink
-                to="announcements"
-                className={({ isActive }) =>
-                  `flex items-center px-4 py-2 my-5  transition-colors duration-300 transform  hover:bg-gray-300   hover:text-gray-700 ${
-                    isActive ? "bg-gray-300  text-gray-700" : "text-gray-600"
-                  }`
-                }
-              >
-                <TfiAnnouncement className="w-5 h-5" />
-
-                <span className="mx-4 font-medium">Announcements</span>
-              </NavLink>
+              <MenuItem
+                label="Announcements"
+                address="announcements"
+                icon={TfiAnnouncement}
+              />
             </nav>
           </div>
         </div>

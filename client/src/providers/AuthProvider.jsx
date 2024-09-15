@@ -11,6 +11,7 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 
 export const AuthContext = createContext(null);
 const googleProvider = new GoogleAuthProvider();
@@ -59,12 +60,44 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // Get token from server
+  const getToken = async (email) => {
+    const { data } = await axios.post(
+      `${import.meta.env.VITE_API_URL}/jwt`,
+      { email },
+      { withCredentials: true }
+    );
+    return data;
+  };
+
+  //save user
+  const saveUser = async (user) => {
+    const currentUser = {
+      email: user?.email,
+      role: "basic user",
+      status: "Verified",
+    };
+
+    const { data } = await axios.put(
+      `${import.meta.env.VITE_API_URL}/user`,
+      currentUser
+    );
+    return data;
+  };
+
+  // onAuthStateChange
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      if (currentUser) {
+        getToken(currentUser.email);
+        saveUser(currentUser);
+      }
       setLoading(false);
     });
-    return () => unSubscribe();
+    return () => {
+      return unsubscribe();
+    };
   }, []);
 
   const authInfo = {

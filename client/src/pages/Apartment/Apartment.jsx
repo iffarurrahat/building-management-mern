@@ -34,13 +34,6 @@ const Apartment = () => {
   });
 
   const numberOfPage = Math.ceil(count / itemPerPage);
-  // const pages = [...Array(numberOfPage).keys()].map((element) => element + 1);
-
-  // // handle pagination button
-  // const handlePaginationButton = (value) => {
-  //   console.log(value);
-  //   setCurrentPage(value);
-  // };
 
   // Generate the pagination range with ellipsis
   const getPaginationRange = () => {
