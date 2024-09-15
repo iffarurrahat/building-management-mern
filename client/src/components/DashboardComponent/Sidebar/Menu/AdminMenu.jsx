@@ -1,5 +1,4 @@
 import MenuItem from "./MenuItem";
-import { FaUserCog } from "react-icons/fa";
 import { RiCoupon2Fill } from "react-icons/ri";
 import { PiMemberOfFill } from "react-icons/pi";
 import { MdAnnouncement } from "react-icons/md";

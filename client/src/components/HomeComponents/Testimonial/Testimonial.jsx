@@ -14,6 +14,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import toast from "react-hot-toast";
 
 const Testimonial = () => {
   const [reviews, setReviews] = useState([]);
@@ -25,7 +26,7 @@ const Testimonial = () => {
         const data = await res.json();
         setReviews(data);
       } catch (err) {
-        console.log(err);
+        toast.error(err.message);
       }
     };
     loadData();

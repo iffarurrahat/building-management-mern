@@ -6,7 +6,6 @@ import Spinner from "../../../components/ui/Spinner/Spinner";
 const MyProfile = () => {
   const { user, loading } = useAuth() || {};
   const [role, isLoading] = useRole();
-  console.log(role);
 
   if (isLoading || loading) return <Spinner />;
 

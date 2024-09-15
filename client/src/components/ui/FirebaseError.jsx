@@ -1,6 +1,4 @@
 const FirebaseError = ({ errMessage, setErrorMessage }) => {
-  console.log("errMessage---->", errMessage);
-
   // Set error messages based on Firebase error codes
   if (errMessage === "Firebase: Error (auth/email-already-in-use).") {
     setErrorMessage("This email is already in use. Please login.");
