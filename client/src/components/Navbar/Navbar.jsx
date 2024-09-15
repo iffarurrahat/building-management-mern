@@ -43,7 +43,7 @@ const Navbar = () => {
   const routes = [
     { id: 1, path: "/", name: "Home" },
     { id: 2, path: "/apartment", name: "Apartment" },
-    { id: 5, path: "/blogs", name: "Blogs" },
+    // { id: 5, path: "/blogs", name: "Blogs" },
     { id: 3, path: "/dashboard", name: "Dashboard" },
   ];
 

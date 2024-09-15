@@ -2,19 +2,20 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
 import { BsGraphUp } from "react-icons/bs";
-import { ImProfile } from "react-icons/im";
-import { FaHistory } from "react-icons/fa";
-import { MdPayment } from "react-icons/md";
 import { AiOutlineBars } from "react-icons/ai";
-import { TfiAnnouncement } from "react-icons/tfi";
 
 import useAuth from "../../../hooks/useAuth";
 import logoImg from "../../../assets/logo.png";
 import MenuItem from "./Menu/MenuItem";
+import MemberMenu from "./Menu/MemberMenu";
+import useRole from "../../../hooks/useRole";
+import UserMenu from "./Menu/UserMenu";
+import AdminMenu from "./Menu/AdminMenu";
 
 const Sidebar = () => {
   const { logOut } = useAuth();
   const [isActive, setActive] = useState(false);
+  const [role] = useRole();
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
@@ -79,33 +80,9 @@ const Sidebar = () => {
                 icon={BsGraphUp}
               />
 
-              {/* My Profile */}
-              <MenuItem
-                label="My Profile"
-                address="my-profile"
-                icon={ImProfile}
-              />
-
-              {/* Make payment */}
-              <MenuItem
-                label="Make Payment"
-                address="make-payment"
-                icon={MdPayment}
-              />
-
-              {/* Payment history */}
-              <MenuItem
-                label="Payment History"
-                address="payment-history"
-                icon={FaHistory}
-              />
-
-              {/* Announcements */}
-              <MenuItem
-                label="Announcements"
-                address="announcements"
-                icon={TfiAnnouncement}
-              />
+              {role === "basic user" && <UserMenu />}
+              {role === "member" && <MemberMenu />}
+              {role === "admin" && <AdminMenu />}
             </nav>
           </div>
         </div>

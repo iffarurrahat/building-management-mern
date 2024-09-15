@@ -8,6 +8,15 @@ import Blogs from "../pages/Blogs/Blogs";
 import DashboardLayout from "../layout/DashboardLayout";
 import Statistics from "../pages/Dashboard/Common/Statistics";
 import MyProfile from "../pages/Dashboard/Common/MyProfile";
+import MakePayment from "../pages/Dashboard/Member/MakePayment";
+import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
+import Announcements from "../pages/Dashboard/Common/Announcements";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
+import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
+import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests";
+import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
+import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +48,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         index: true,
@@ -48,6 +61,38 @@ const router = createBrowserRouter([
       {
         path: "my-profile",
         element: <MyProfile />,
+      },
+      {
+        path: "make-payment",
+        element: <MakePayment />,
+      },
+      {
+        path: "payment-history",
+        element: <PaymentHistory />,
+      },
+      {
+        path: "announcements",
+        element: <Announcements />,
+      },
+      {
+        path: "admin-profile",
+        element: <AdminProfile />,
+      },
+      {
+        path: "manage-members",
+        element: <ManageMembers />,
+      },
+      {
+        path: "make-announcement",
+        element: <MakeAnnouncement />,
+      },
+      {
+        path: "agreement-requests",
+        element: <AgreementRequests />,
+      },
+      {
+        path: "manage-coupons",
+        element: <ManageCoupons />,
       },
     ],
   },

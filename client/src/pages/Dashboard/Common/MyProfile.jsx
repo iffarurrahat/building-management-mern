@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
+import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import Spinner from "../../../components/ui/Spinner/Spinner";
-import useAuth from "../../../hooks/useAuth";
 
 const MyProfile = () => {
   const { user, loading } = useAuth() || {};
