@@ -6,7 +6,7 @@ import useAuth from "../../../hooks/useAuth";
 const MyProfile = () => {
   const { user, loading } = useAuth() || {};
   const [role, isLoading] = useRole();
-  console.log("role--->:", role);
+  console.log(role);
 
   if (isLoading || loading) return <Spinner />;
 
@@ -18,8 +18,8 @@ const MyProfile = () => {
       <div className="bg-white shadow-lg rounded-2xl w-3/5">
         <img
           alt="my profile"
-          src="https://wallpapercave.com/wp/wp10784415.jpg"
-          className="w-full mb-4 rounded-t-lg h-36"
+          src="https://images.pexels.com/photos/4004374/pexels-photo-4004374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          className="w-full mb-4 rounded-t-lg h-36 object-cover"
         />
         <div className="flex flex-col items-center justify-center p-4 -mt-16">
           <a href="#" className="relative block">
@@ -30,7 +30,7 @@ const MyProfile = () => {
             />
           </a>
 
-          <p className="p-2 px-4 text-xs text-white bg-pink-500 rounded-full">
+          <p className="p-2 px-4 text-xs text-white bg-pink-500 rounded-full capitalize">
             {role}
           </p>
           <p className="mt-2 text-xl font-medium text-gray-800 ">

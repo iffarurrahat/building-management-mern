@@ -117,11 +117,13 @@ async function run() {
 
       if (isExits) {
         if (user.status === "Requested") {
+          //if existing user tyr to change his role
           const result = await usersCollection.updateOne(query, {
             $set: { status: user?.user },
           });
           return res.send(result);
         } else {
+          //if existing user login again
           return res.send(isExits);
         }
       }
@@ -136,6 +138,13 @@ async function run() {
       };
 
       const result = await usersCollection.updateOne(query, updateDoc, options);
+      res.send(result);
+    });
+
+    // get a user info by email from db
+    app.get("/user/:email", async (req, res) => {
+      const email = req.params.email;
+      const result = await usersCollection.findOne({ email });
       res.send(result);
     });
 
