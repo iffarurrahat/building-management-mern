@@ -82,7 +82,7 @@ const SignUp = () => {
       </Helmet>
 
       <div className="flex justify-center items-center min-h-screen">
-        <div className="flex flex-col max-w-lg rounded-md p-5 sm:p-10 bg-gray-100/25 text-gray-900">
+        <div className="flex flex-col max-w-lg rounded-md p-5 sm:p-10 bg-primary/5 text-gray-900">
           <div className="mb-3 text-center">
             <h1 className="mb-2 text-4xl font-bold">Sign Up</h1>
             <p className="text-sm text-gray-400">
