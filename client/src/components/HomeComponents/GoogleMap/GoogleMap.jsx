@@ -130,7 +130,7 @@ const GoogleMap = () => {
       </Container>
 
       {/* map */}
-      <div className="bg-slate-600/30 w-full absolute -mt-52 -z-50 grayscale ">
+      <div className="bg-slate-600/30 w-full absolute -mt-48 -z-50 grayscale ">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3457.757286497821!2d-90.08680172509972!3d29.928888924037736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8620a5cd594cf40b%3A0x6bb2c38c427551bf!2s1403%20Washington%20Ave%2C%20New%20Orleans%2C%20LA%2070115%2C%20USA!5e0!3m2!1sen!2sbd!4v1725978534923!5m2!1sen!2sbd"
           width="100%"
