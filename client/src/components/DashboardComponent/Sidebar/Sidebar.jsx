@@ -1,25 +1,41 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GrLogout } from "react-icons/gr";
-import { BsGraphUp } from "react-icons/bs";
 import { AiOutlineBars } from "react-icons/ai";
 
 import useAuth from "../../../hooks/useAuth";
 import logoImg from "../../../assets/logo.png";
-import MenuItem from "./Menu/MenuItem";
 import MemberMenu from "./Menu/MemberMenu";
 import useRole from "../../../hooks/useRole";
 import UserMenu from "./Menu/UserMenu";
 import AdminMenu from "./Menu/AdminMenu";
+import toast from "react-hot-toast";
 
 const Sidebar = () => {
-  const { logOut } = useAuth();
+  const navigate = useNavigate();
+  const { logOut, setLoading } = useAuth();
   const [isActive, setActive] = useState(false);
   const [role] = useRole();
 
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive);
+  };
+
+  // logout
+  const handleSignOut = () => {
+    logOut();
+    const toastId = toast.loading("Loading...");
+
+    try {
+      toast.success("Logout Successful", { id: toastId });
+      navigate("/");
+    } catch (err) {
+      if (err.message) {
+        setLoading(false);
+        toast.error("Something wrong", { id: toastId });
+      }
+    }
   };
   return (
     <>
@@ -57,29 +73,15 @@ const Sidebar = () => {
           <div>
             <div className="w-full hidden md:flex px-4 py-5 shadow rounded-lg justify-center items-center mx-auto border">
               <Link to="/">
-                <img
-                  // className='hidden md:block'
-                  src={logoImg}
-                  alt="logo"
-                  className="md:w-28 lg:w-32"
-                />
+                <img src={logoImg} alt="logo" className="md:w-28 lg:w-32" />
               </Link>
             </div>
           </div>
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
-            {/* Conditional toggle button here.. */}
-
             {/*  Menu Items */}
             <nav>
-              {/* Statistics */}
-              <MenuItem
-                label="Statistics"
-                address="/dashboard"
-                icon={BsGraphUp}
-              />
-
               {role === "basic user" && <UserMenu />}
               {role === "member" && <MemberMenu />}
               {role === "admin" && <AdminMenu />}
@@ -90,7 +92,7 @@ const Sidebar = () => {
         <div>
           <hr />
           <button
-            onClick={logOut}
+            onClick={handleSignOut}
             className="flex w-full items-center px-4 py-2 mt-5 text-gray-600 hover:bg-gray-300   hover:text-gray-700 transition-colors duration-300 transform"
           >
             <GrLogout className="w-5 h-5" />

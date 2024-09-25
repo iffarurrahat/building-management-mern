@@ -7,7 +7,7 @@ const EmptyStateMain = ({ title, pathname }) => {
     <div className="relative">
       <img
         src={image}
-        className="bg-no-repeat object-cover w-full h-72 md:h-80 lg:h-96 brightness-50"
+        className="bg-no-repeat object-cover w-full h-72 md:h-80 lg:h-96 brightness-50 bg-black"
         alt=""
       />
       <div className="absolute inset-0 bg-black opacity-40 pointer-events-none"></div>

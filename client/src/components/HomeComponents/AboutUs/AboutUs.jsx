@@ -17,6 +17,7 @@ import {
 import "swiper/css";
 import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const [slides, setSlides] = useState([]);
@@ -82,9 +83,11 @@ const AboutUs = () => {
               <h4 className="md:text-xl font-medium">+01 234 56789</h4>
             </div>
           </div>
-          <button className="bg-black text-white px-5 md:px-8 py-2.5 md:py-4 rounded-full mt-4 md:mt-8 flex items-center gap-2 text-xs md:text-base font-medium">
-            More About <FaArrowRightLong />
-          </button>
+          <Link to="/apartment">
+            <button className="bg-black text-white px-5 md:px-8 py-2.5 md:py-4 rounded-full mt-4 md:mt-8 flex items-center gap-2 text-xs md:text-base font-medium">
+              More About <FaArrowRightLong />
+            </button>
+          </Link>
         </div>
 
         {/* RIGHT Side */}

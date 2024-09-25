@@ -1,0 +1,7 @@
+.discount-image {
+  background-image: url("../../../assets/counter-bg.png");
+  background-color: #222222;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right top;
+}

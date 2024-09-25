@@ -12,6 +12,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
+import { Link } from "react-router-dom";
 
 const Slider = ({ slides }) => {
   return (
@@ -52,10 +53,12 @@ const Slider = ({ slides }) => {
                   <p className="md:w-1/2 lg:w-2/3 leading-6 md:leading-8">
                     {slide.details}
                   </p>
-                  <button className="flex items-center gap-3 border px-3 md:px-6 py-2 md:py-3 rounded mt-3 hover:bg-primary hover:border-primary duration-200 tracking-wider font-medium text-sm md:text-base">
-                    See Details
-                    <HiOutlineArrowNarrowRight />
-                  </button>
+                  <Link to="/apartment">
+                    <button className="flex items-center gap-3 border px-3 md:px-6 py-2 md:py-3 rounded mt-3 hover:bg-primary hover:border-primary duration-200 tracking-wider font-medium text-sm md:text-base">
+                      See Details
+                      <HiOutlineArrowNarrowRight />
+                    </button>
+                  </Link>
                 </Container>
               </div>
             </div>

@@ -1,16 +1,15 @@
 import { Helmet } from "react-helmet-async";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+
+import axios from "axios";
+import { useState } from "react";
+import toast from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
 import { ImSpinner10 } from "react-icons/im";
-
-import toast from "react-hot-toast";
-import { useState } from "react";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { RiErrorWarningFill } from "react-icons/ri";
-import FirebaseError from "../../components/ui/FirebaseError";
-import axios from "axios";
 import Spinner from "../../components/ui/Spinner/Spinner";
-// import FirebaseError from "../../components/ui/FirebaseError";
+import FirebaseError from "../../components/ui/FirebaseError";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const { createUser, updateUserProfile, user, loading, setLoading } =

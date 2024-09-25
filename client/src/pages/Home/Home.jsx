@@ -1,6 +1,7 @@
 import AboutUs from "../../components/HomeComponents/AboutUs/AboutUs";
 import Banner from "../../components/HomeComponents/Banner/Banner";
 import Counter from "../../components/HomeComponents/Counter/Counter";
+import DiscountSection from "../../components/HomeComponents/DiscountSection/DiscountSection";
 import Discover from "../../components/HomeComponents/Discover/Discover";
 import GoogleMap from "../../components/HomeComponents/GoogleMap/GoogleMap";
 import PartnerSection from "../../components/HomeComponents/PartnerSection/PartnerSection";
@@ -14,6 +15,7 @@ const Home = () => {
       <Discover />
       <Counter />
       <GoogleMap />
+      <DiscountSection />
       <Testimonial />
       <PartnerSection />
     </div>

@@ -4,6 +4,7 @@ import aboutImg1 from "../../../assets/about-img-1.jpg";
 import aboutImg2 from "../../../assets/about-img-2.jpg";
 import Container from "../../ui/Container";
 import "./Discover.css";
+import { Link } from "react-router-dom";
 
 const Discover = () => {
   return (
@@ -67,9 +68,11 @@ const Discover = () => {
                 ensuring comfort and elegance. Experience an exceptional living
                 environment tailored to your lifestyle
               </p>
-              <button className="bg-[#4C6275] text-white px-5 md:px-8 py-2.5 md:py-4 rounded mt-4 md:mt-8 text-xs md:text-base font-medium">
-                Book Now
-              </button>
+              <Link to="/apartment">
+                <button className="bg-[#4C6275] text-white px-5 md:px-8 py-2.5 md:py-4 rounded mt-4 md:mt-8 text-xs md:text-base font-medium">
+                  Book Now
+                </button>
+              </Link>
             </div>
           </div>
         </div>

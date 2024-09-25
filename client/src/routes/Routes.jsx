@@ -6,7 +6,6 @@ import SignIn from "../pages/Auth/SignIn";
 import Apartment from "../pages/Apartment/Apartment";
 import Blogs from "../pages/Blogs/Blogs";
 import DashboardLayout from "../layout/DashboardLayout";
-import Statistics from "../pages/Dashboard/Common/Statistics";
 import MyProfile from "../pages/Dashboard/Common/MyProfile";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
@@ -17,12 +16,16 @@ import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests";
 import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
 import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
 import PrivateRoute from "./PrivateRoute";
+import DashboardDefaultRoute from "../pages/Dashboard/DashboardDefaultRoute";
+import ErrorPage from "../pages/ErrorPage";
+import AdminRoute from "./AdminRoute";
+import MemberRoute from "./MemberRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement: <p>Error</p>,
+    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
@@ -56,43 +59,97 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Statistics />,
+        element: (
+          <PrivateRoute>
+            <DashboardDefaultRoute />
+          </PrivateRoute>
+        ),
       },
       {
         path: "my-profile",
-        element: <MyProfile />,
-      },
-      {
-        path: "make-payment",
-        element: <MakePayment />,
-      },
-      {
-        path: "payment-history",
-        element: <PaymentHistory />,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
       {
         path: "announcements",
-        element: <Announcements />,
+        element: (
+          <PrivateRoute>
+            <Announcements />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "make-payment",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <MakePayment />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <PaymentHistory />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "admin-profile",
-        element: <AdminProfile />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AdminProfile />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manage-members",
-        element: <ManageMembers />,
+        element: (
+          <PrivateRoute>
+            <PrivateRoute>
+              <ManageMembers />
+            </PrivateRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "make-announcement",
-        element: <MakeAnnouncement />,
+        element: (
+          <PrivateRoute>
+            <PrivateRoute>
+              <MakeAnnouncement />
+            </PrivateRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "agreement-requests",
-        element: <AgreementRequests />,
+        element: (
+          <PrivateRoute>
+            <AdminRoute>
+              <AgreementRequests />
+            </AdminRoute>
+          </PrivateRoute>
+        ),
       },
       {
         path: "manage-coupons",
-        element: <ManageCoupons />,
+        element: (
+          <PrivateRoute>
+            <PrivateRoute>
+              <ManageCoupons />
+            </PrivateRoute>
+          </PrivateRoute>
+        ),
       },
     ],
   },

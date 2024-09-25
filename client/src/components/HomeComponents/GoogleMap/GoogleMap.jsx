@@ -22,7 +22,7 @@ const GoogleMap = () => {
               <div className="md:flex items-center gap-5">
                 <div className="flex justify-center md:justify-start">
                   <img
-                    src="https://i.ibb.co.com/L5pkrFT/Kevin-Smith.png"
+                    src="https://i.ibb.co.com/zfsQf7P/Kevin-Smith.png"
                     alt="image"
                     className="border-2 border-primary p-1.5 rounded-full  object-cover"
                   />
