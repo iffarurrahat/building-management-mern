@@ -320,18 +320,17 @@ async function run() {
       res.send(result);
     });
 
-    //update room status 
-    app.patch('/rooms/status/:id', async (req, res) =>{
+
+    // update Room Status 
+    app.patch('/room/status/:id', async (req, res) =>{
       const id = req.params.id;
       const status = req.body.status;
-
       // change room availability status
       const query = {_id: new ObjectId(id)}
       const updateDoc = {
         $set: {booked: status}
       }
       const result = await roomsCollection.updateOne(query, updateDoc)
-      console.log(result);
       res.send(result);
     })
 
