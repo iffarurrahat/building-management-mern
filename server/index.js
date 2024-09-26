@@ -249,7 +249,7 @@ async function run() {
     // Get all bookings data query by email from db
     app.get("/booking/:email", async (req, res) => {
       const email = req.params.email;
-      const query = { "bookingUser.booking_email": email };
+      const query = { "bookingUser.email": email };
       const result = await bookingsCollection.find(query).toArray();
       res.send(result);
     });
@@ -257,12 +257,12 @@ async function run() {
     // booking a data post, and update user status from db
     app.post("/booking", async (req, res) => {
       const booking = req.body;
-      const bookingEmail = booking.bookingUser.booking_email;
+      const bookingEmail = booking.bookingUser.email;
       const status = booking.status;
 
       // Check if the user has any existing bookings
       const existingBookings = await bookingsCollection.findOne({
-        "bookingUser.booking_email": bookingEmail,
+        "bookingUser.email": bookingEmail,
       });
 
       if (existingBookings) {
@@ -332,6 +332,14 @@ async function run() {
       }
       const result = await roomsCollection.updateOne(query, updateDoc)
       res.send(result);
+    });
+
+    // get all payments for a member 
+    app.get('/my-payments/:email', verifyToken, async (req, res) =>{
+      const email = req.params.email;
+      const query = {'bookingUser.email': email}
+      const result = await paymentsCollection.find(query).toArray()
+      res.send(result)
     })
 
     // Send a ping to confirm a successful connection

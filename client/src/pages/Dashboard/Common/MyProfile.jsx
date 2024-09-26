@@ -21,6 +21,8 @@ const MyProfile = () => {
     },
   });
 
+  console.log("bookings-->", bookings);
+
   //
   const { data: userSingleData = [] } = useQuery({
     queryKey: ["user", user?.email],
@@ -29,6 +31,7 @@ const MyProfile = () => {
       return data;
     },
   });
+  console.log(userSingleData.status);
 
   if (isLoading || loading) return <Spinner />;
 

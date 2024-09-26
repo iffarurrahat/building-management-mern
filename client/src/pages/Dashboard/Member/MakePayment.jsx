@@ -138,7 +138,7 @@ const MakePayment = () => {
                   </label>
                   <input
                     className="block w-full px-4 py-2.5 border border-primary text-primary rounded"
-                    defaultValue={booking?.bookingUser?.booking_email}
+                    defaultValue={booking?.bookingUser?.email}
                     disabled
                   />
                 </div>
@@ -148,7 +148,7 @@ const MakePayment = () => {
                   </label>
                   <input
                     className="block w-full px-4 py-2.5 border border-primary text-primary rounded"
-                    defaultValue={booking?.bookingUser?.booking_name}
+                    defaultValue={booking?.bookingUser?.name}
                     disabled
                   />
                 </div>

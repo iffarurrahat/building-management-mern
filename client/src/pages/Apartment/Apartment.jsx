@@ -1,10 +1,10 @@
-import Container from "../../components/ui/Container";
-import EmptyStateMain from "../../components/EmptyState/EmptyStateMain";
-import RoomCard from "../../components/Card/RoomCard/RoomCard";
+import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import Container from "../../components/ui/Container";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Spinner from "../../components/ui/Spinner/Spinner";
-import { useState } from "react";
+import RoomCard from "../../components/Card/RoomCard/RoomCard";
+import EmptyStateMain from "../../components/EmptyState/EmptyStateMain";
 
 const Apartment = () => {
   // eslint-disable-next-line no-unused-vars
@@ -22,6 +22,7 @@ const Apartment = () => {
       return data;
     },
   });
+  console.log(rooms.length);
 
   // eslint-disable-next-line no-unused-vars
   const { data: roomCountData } = useQuery({

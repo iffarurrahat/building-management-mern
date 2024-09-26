@@ -16,6 +16,7 @@ const RoomCard = ({ room }) => {
   const axiosSecure = useAxiosSecure();
   const [isOpen, setIsOpen] = useState(false);
   const { image, rent, apartmentNo, floorNo, blockName, booked } = room || {};
+  // console.log("booked-->:", booked);
 
   const agreementReqDate = format(new Date(), "yyyy-MM-dd");
 
@@ -59,8 +60,9 @@ const RoomCard = ({ room }) => {
     }
 
     const bookingUser = {
-      booking_name: user?.displayName,
-      booking_email: user?.email,
+      name: user?.displayName,
+      email: user?.email,
+      image: user?.photoURL,
     };
 
     const bookingInfo = {

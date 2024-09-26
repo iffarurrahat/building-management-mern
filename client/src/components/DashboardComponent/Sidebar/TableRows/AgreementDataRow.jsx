@@ -15,12 +15,10 @@ const AgreementDataRow = ({
   return (
     <tr>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs whitespace-nowrap">
-        <p className="text-gray-900">{bookingUser.booking_name}</p>
+        <p className="text-gray-900">{bookingUser.name}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
-        <p className="text-gray-900 whitespace-no-wrap">
-          {bookingUser.booking_email}
-        </p>
+        <p className="text-gray-900 whitespace-no-wrap">{bookingUser.email}</p>
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs whitespace-no-wrap">
         <p className="text-gray-900 text-center">{apartment_no}</p>
@@ -44,7 +42,7 @@ const AgreementDataRow = ({
 
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
         <button
-          onClick={() => handleRequestAccepted(bookingUser.booking_email)}
+          onClick={() => handleRequestAccepted(bookingUser.email)}
           className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-green-900 leading-tight"
         >
           <span
@@ -56,7 +54,7 @@ const AgreementDataRow = ({
       </td>
       <td className="px-5 py-5 border-b border-gray-200 bg-white text-xs">
         <button
-          onClick={() => handleRequestRejected(bookingUser.booking_email)}
+          onClick={() => handleRequestRejected(bookingUser.email)}
           className="relative cursor-pointer inline-block px-3 py-1 font-semibold text-red-900 leading-tight"
         >
           <span

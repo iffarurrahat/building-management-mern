@@ -108,7 +108,7 @@ const CheckoutForm = ({ setIsOpen, booking, totalAmount, refetch }) => {
         console.log(data);
 
         // 3. change apartment status to booked in db
-        await axiosSecure.patch(`/room/status/${booking?._id}`, {
+        await axiosSecure.patch(`/room/status/${booking?.booking_id}`, {
           status: true,
         });
 

@@ -1,6 +1,30 @@
 import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useAuth from "../../../hooks/useAuth";
+import Spinner from "../../../components/ui/Spinner/Spinner";
+import { useQuery } from "@tanstack/react-query";
 
 const PaymentHistory = () => {
+  const { user } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  // fetch all the booking for this logged in user
+  const {
+    data: payments = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["my-payments", user?.email],
+    queryFn: async () => {
+      const { data } = await axiosSecure.get(`/my-payments/${user?.email}`);
+      return data;
+    },
+  });
+
+  console.log(payments);
+
+  if (isLoading) return <Spinner />;
+
   return (
     <>
       <Helmet>
