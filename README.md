@@ -1,6 +1,8 @@
 # Building Management MERN
 
-## Website Live URL: [Building Management](https://building-management-93152.web.app/)
+#### 🔗 Website Live URL One: [Building Management](https://building-management-2241.surge.sh/)
+
+#### 🔗 Website Live URL Two: [Building Management](https://sparkly-haupia-877131.netlify.app/)
 
 <!-- #### 📢 Admin User Email: user.admin201@gmail.com -->
 
@@ -14,7 +16,7 @@
 - Built with modern technologies like React, MongoDB, and Express.js.
 - Focus on providing timely and professional services to property owners and tenants.
 
-## Using Package / Tools Front-End:
+## 🧰 Using Package / Tools Front-End:
 
 - React
 - React-Router
@@ -26,13 +28,13 @@
 - Swiper
 - Firebase
 
-## Using Package / Tools Back-End:
+## 🧰 Using Package / Tools Back-End:
 
 - Express
 - Cors
 - Dotenv
 - MongoDB
 
-## Using FontFamily:
+## 🖊️ Using FontFamily:
 
 - Google font: "Roboto, sans-serif"
