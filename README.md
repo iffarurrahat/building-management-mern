@@ -2,9 +2,9 @@
 
 ## Website Live URL: [Building Management](https://building-management-93152.web.app/)
 
-#### 📢 Admin User Email: user.admin201@gmail.com
+<!-- #### 📢 Admin User Email: user.admin201@gmail.com -->
 
-#### 📢 Admin User Password: 123456
+<!-- #### 📢 Admin User Password: 123456 -->
 
 ## About To Building Management
 

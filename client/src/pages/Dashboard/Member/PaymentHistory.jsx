@@ -3,6 +3,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Spinner from "../../../components/ui/Spinner/Spinner";
 import { useQuery } from "@tanstack/react-query";
+import PaymentDataRow from "../../../components/DashboardComponent/Sidebar/TableRows/PaymentDataRow";
 
 const PaymentHistory = () => {
   const { user } = useAuth();
@@ -41,13 +42,13 @@ const PaymentHistory = () => {
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                     >
-                      Title
+                      Info
                     </th>
                     <th
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
                     >
-                      Info
+                      TransactionId
                     </th>
                     <th
                       scope="col"
@@ -55,6 +56,7 @@ const PaymentHistory = () => {
                     >
                       Price
                     </th>
+
                     <th
                       scope="col"
                       className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal"
@@ -75,7 +77,15 @@ const PaymentHistory = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{/* Table Row Data */}</tbody>
+                <tbody>
+                  {payments.map((data) => (
+                    <PaymentDataRow
+                      key={data._id}
+                      data={data}
+                      refetch={refetch}
+                    />
+                  ))}
+                </tbody>
               </table>
             </div>
           </div>
