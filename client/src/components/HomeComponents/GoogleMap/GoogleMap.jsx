@@ -118,7 +118,10 @@ const GoogleMap = () => {
                   </div>
 
                   <div className="flex items-center justify-between mt-4">
-                    <button className="px-10 py-3 text-sm font-medium text-white bg-primary rounded-lg">
+                    <button
+                      disabled
+                      className="px-10 py-3 text-sm font-medium text-white bg-primary rounded-lg"
+                    >
                       Send a Message
                     </button>
                   </div>

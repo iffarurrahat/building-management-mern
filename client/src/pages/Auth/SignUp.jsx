@@ -167,7 +167,7 @@ const SignUp = () => {
                 {loading ? (
                   <ImSpinner10 className="animate-spin m-auto" />
                 ) : (
-                  "Continue"
+                  "Register"
                 )}
               </button>
               {/* Error Message form Firebase */}

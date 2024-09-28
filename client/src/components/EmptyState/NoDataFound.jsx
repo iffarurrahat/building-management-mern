@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
-const NoDataFound = ({ title, text}) => {
+const NoDataFound = ({ title, text }) => {
   return (
-    <div className="flex justify-center">
-      <div className="max-w-2xl bg-base-200/30 shadow rounded p-4 sm:p-6 md:p-8 lg:p-10">
+    <div className="flex justify-center items-center h-96 sm:h-[500px] md:h-screen">
+      <div className="max-w-2xl bg-base-200/30  p-4 sm:p-6 md:p-8 lg:p-10">
         <div className="text-center">
           <div className="flex justify-center">
             <img
@@ -11,12 +11,10 @@ const NoDataFound = ({ title, text}) => {
               className=""
             />
           </div>
-          <h1
-            className="md:text-xl font-medium mt-1 md:mt-2 lg:mt-3 text-[#38a169]"
-          >
+          <h1 className="md:text-xl font-medium mt-1 md:mt-2 lg:mt-3 text-primary">
             {title}
           </h1>
-          <h4 className="text-[#a2a5b9] font-medium mt-1">
+          <h4 className="text-[#a2a5b9] font-medium mt-1 text-xs sm:text-sm md:text-base">
             {text}
           </h4>
         </div>
