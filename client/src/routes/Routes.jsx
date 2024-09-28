@@ -66,42 +66,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "my-profile",
-        element: (
-          <PrivateRoute>
-            <MyProfile />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "announcements",
-        element: (
-          <PrivateRoute>
-            <Announcements />
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "make-payment",
-        element: (
-          <PrivateRoute>
-            <MemberRoute>
-              <MakePayment />
-            </MemberRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "payment-history",
-        element: (
-          <PrivateRoute>
-            <MemberRoute>
-              <PaymentHistory />
-            </MemberRoute>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "admin-profile",
         element: (
           <PrivateRoute>
@@ -148,6 +112,42 @@ const router = createBrowserRouter([
             <PrivateRoute>
               <ManageCoupons />
             </PrivateRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "my-profile",
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "announcements",
+        element: (
+          <PrivateRoute>
+            <Announcements />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "make-payment",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <MakePayment />
+            </MemberRoute>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "payment-history",
+        element: (
+          <PrivateRoute>
+            <MemberRoute>
+              <PaymentHistory />
+            </MemberRoute>
           </PrivateRoute>
         ),
       },
