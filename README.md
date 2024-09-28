@@ -16,7 +16,7 @@
 - Built with modern technologies like React, MongoDB, and Express.js.
 - Focus on providing timely and professional services to property owners and tenants.
 
-## ⚒️ Using Package / Tools Front-End:
+## ⚒️ Using Package / Tools Front-End
 
 - React
 - React-Router
@@ -28,16 +28,16 @@
 - Swiper
 - Firebase
 
-## ⚒️ Using Package / Tools Back-End:
+## ⚒️ Using Package / Tools Back-End
 
 - Express
 - Cors
 - Dotenv
 
-## 💽 Database
+## 🗂️ Database
 
 - MongoDB
 
-## 🖊️ Using FontFamily:
+## 🖊️ Using FontFamily
 
 - Google font: "Roboto, sans-serif"
