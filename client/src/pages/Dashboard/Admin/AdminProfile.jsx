@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import Spinner from "../../../components/ui/Spinner/Spinner";
 import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
+import AdminStatistics from "./AdminStatistics";
 
 const AdminProfile = () => {
   const { user, loading } = useAuth() || {};
@@ -9,19 +10,23 @@ const AdminProfile = () => {
 
   if (isLoading || loading) return <Spinner />;
 
-
   return (
-  <>
-  <Helmet>
-    <title>Admin Profile | Dashboard</title>
-  </Helmet>
-    <div className="flex justify-center items-center h-screen"> 
-    <div className="bg-white shadow border rounded-2xl md:w-3/5">
-      <img
-        alt="my profile"
-        src="https://images.pexels.com/photos/4004374/pexels-photo-4004374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-        className="w-full mb-4 rounded-t-lg h-36 object-cover"
-      />
+    <>
+      <Helmet>
+        <title>Admin Profile | Dashboard</title>
+      </Helmet>
+
+      {/* Admin Statistics */}
+      <AdminStatistics />
+
+      {/* Admin Profile */}
+      <div className="flex justify-center items-center h-screen">
+        <div className="bg-white shadow border rounded-2xl md:w-3/5">
+          <img
+            alt="my profile"
+            src="https://images.pexels.com/photos/4004374/pexels-photo-4004374.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            className="w-full mb-4 rounded-t-lg h-36 object-cover"
+          />
           <div className="flex flex-col items-center justify-center p-2 md:p-4 -mt-16">
             <a href="#" className="relative block">
               <img
@@ -62,8 +67,8 @@ const AdminProfile = () => {
             </div>
           </div>
         </div>
-    </div>
-  </>
+      </div>
+    </>
   );
 };
 
