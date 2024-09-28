@@ -5,7 +5,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 const jwt = require("jsonwebtoken");
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY)
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 const port = process.env.PORT || 5000;
 
@@ -57,7 +57,7 @@ async function run() {
     // Connect the client to the server	(optional starting in v4.7)
     // await client.connect();
 
-    const db = client.db("buildingDB")
+    const db = client.db("buildingDB");
     const roomsCollection = db.collection("rooms");
     const usersCollection = db.collection("users");
     const noticesCollection = db.collection("notices");
@@ -120,24 +120,24 @@ async function run() {
     });
 
     //create-payment-intent
-    app.post('/create-payment-intent', verifyToken, async(req, res) =>{
-      const price = req.body.rent
-      const priceInCent = parseFloat(price) * 100
+    app.post("/create-payment-intent", verifyToken, async (req, res) => {
+      const price = req.body.rent;
+      const priceInCent = parseFloat(price) * 100;
 
-      if(!price || priceInCent < 1) return;
+      if (!price || priceInCent < 1) return;
 
       // generate clientSecret
-      const {client_secret} = await stripe.paymentIntents.create({
+      const { client_secret } = await stripe.paymentIntents.create({
         amount: priceInCent,
         currency: "usd",
         // In the latest version of the API, specifying the `automatic_payment_methods` parameter is optional because Stripe enables its functionality by default.
         automatic_payment_methods: {
           enabled: true,
         },
-      })
+      });
       // send client secret as response
-      res.send({clientSecret: client_secret})
-    })
+      res.send({ clientSecret: client_secret });
+    });
 
     //save a user data in db
     app.put("/user", async (req, res) => {
@@ -285,14 +285,18 @@ async function run() {
     });
 
     // Get all coupons data in db
-    app.get("/coupons",  async (req, res) => {
+    app.get("/coupons", async (req, res) => {
       const result = await couponsCollection.find().toArray();
       res.send(result);
     });
 
     //Get last post coupons data in db
     app.get("/coupons/latest", async (req, res) => {
-      const result = await couponsCollection.find().sort({ _id: -1 }).limit(1).toArray();
+      const result = await couponsCollection
+        .find()
+        .sort({ _id: -1 })
+        .limit(1)
+        .toArray();
       res.send(result[0]);
     });
 
@@ -309,7 +313,7 @@ async function run() {
       const result = await paymentsCollection.insertOne(paymentData);
 
       // // change room availability status
-      // const bookingId = paymentData?.booking_id 
+      // const bookingId = paymentData?.booking_id
       // const query = {_id: new ObjectId(bookingId)}
       // const updateDoc = {
       //   $set: {booked: true}
@@ -320,27 +324,26 @@ async function run() {
       res.send(result);
     });
 
-
-    // update Room Status 
-    app.patch('/room/status/:id', async (req, res) =>{
+    // update Room Status
+    app.patch("/room/status/:id", async (req, res) => {
       const id = req.params.id;
       const status = req.body.status;
       // change room availability status
-      const query = {_id: new ObjectId(id)}
+      const query = { _id: new ObjectId(id) };
       const updateDoc = {
-        $set: {booked: status}
-      }
-      const result = await roomsCollection.updateOne(query, updateDoc)
+        $set: { booked: status },
+      };
+      const result = await roomsCollection.updateOne(query, updateDoc);
       res.send(result);
     });
 
-    // get all payments for a member 
-    app.get('/my-payments/:email', verifyToken, async (req, res) =>{
+    // get all payments for a member
+    app.get("/my-payments/:email", verifyToken, async (req, res) => {
       const email = req.params.email;
-      const query = {'bookingUser.email': email}
-      const result = await paymentsCollection.find(query).toArray()
-      res.send(result)
-    })
+      const query = { "bookingUser.email": email };
+      const result = await paymentsCollection.find(query).toArray();
+      res.send(result);
+    });
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
