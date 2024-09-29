@@ -79,9 +79,9 @@ const router = createBrowserRouter([
         path: "manage-members",
         element: (
           <PrivateRoute>
-            <PrivateRoute>
+            <AdminRoute>
               <ManageMembers />
-            </PrivateRoute>
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -89,9 +89,9 @@ const router = createBrowserRouter([
         path: "make-announcement",
         element: (
           <PrivateRoute>
-            <PrivateRoute>
+            <AdminRoute>
               <MakeAnnouncement />
-            </PrivateRoute>
+            </AdminRoute>
           </PrivateRoute>
         ),
       },
@@ -109,9 +109,9 @@ const router = createBrowserRouter([
         path: "manage-coupons",
         element: (
           <PrivateRoute>
-            <PrivateRoute>
+            <AdminRoute>
               <ManageCoupons />
-            </PrivateRoute>
+            </AdminRoute>
           </PrivateRoute>
         ),
       },

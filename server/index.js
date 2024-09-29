@@ -345,6 +345,47 @@ async function run() {
       res.send(result);
     });
 
+    // Admin Statistics
+    app.get("/admin-stat", async (req, res) => {
+      const paymentsDetails = await paymentsCollection
+        .find({}, { projection: { date: 1, rent: 1 } })
+        .toArray();
+
+      const totalUser = await usersCollection.countDocuments();
+      const totalRooms = await roomsCollection.countDocuments();
+      const totalRent = paymentsDetails.reduce(
+        (sum, booking) => sum + booking.rent,
+        0
+      );
+
+      // const data = [
+      //   ["Day", "Sales"],
+      //   ["9", 1000],
+      //   ["10", 1170],
+      //   ["11", 660],
+      //   ["12", 1030],
+      // ];
+
+      const chartArt = paymentsDetails.map((payment) => {
+        const day = new Date(payment.date).getDate();
+        const month = new Date(payment.date).getMonth() + 1;
+        const data = [`${day}/${month} `, payment.rent];
+        return data;
+      });
+      chartArt.unshift(["Day", "Apartment Sales"]);
+      // chartArt.splice(0, 0, ["Day", "Sales"]);
+
+      // console.log(chartArt);
+
+      res.send({
+        totalUser,
+        totalRooms,
+        totalPayments: paymentsDetails.length,
+        totalRent,
+        chartArt,
+      });
+    });
+
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
     console.log(
