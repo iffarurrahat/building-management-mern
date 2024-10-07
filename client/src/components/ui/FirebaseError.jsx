@@ -9,6 +9,10 @@ const FirebaseError = ({ errMessage, setErrorMessage }) => {
     setErrorMessage("Network error. Please check your internet connection.");
   } else if (errMessage === "Firebase: Error (auth/invalid-credential).") {
     setErrorMessage("Email or Password might be wrong");
+  } else if (errMessage === "Firebase: Error (auth/invalid-email).") {
+    setErrorMessage("Please type your email / password");
+  } else if (errMessage === "Firebase: Error (auth/missing-password).") {
+    setErrorMessage("Your password is missing");
   } else if (errMessage === "Firebase: Error (auth/popup-closed-by-user).") {
     setErrorMessage("Sign in cancelled. Please try again.");
   } else if (errMessage === "Firebase: Error (auth/internal-error).") {

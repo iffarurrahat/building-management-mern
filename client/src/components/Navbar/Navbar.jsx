@@ -1,15 +1,15 @@
-import { RiCloseLine, RiMenu2Line } from "react-icons/ri";
-import Container from "../ui/Container";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
 import Drawer from "./Drawer";
-import logoImg from "../../assets/logo.png";
 import toast from "react-hot-toast";
+import Container from "../ui/Container";
+import useAuth from "../../hooks/useAuth";
+import { useEffect, useState } from "react";
+import logoImg from "../../assets/logo.png";
+import { RiCloseLine, RiMenu2Line } from "react-icons/ri";
+import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { user, logOut, setLoading } = useAuth();
+  const { user, logOut, setLoading, loading } = useAuth();
   // New state for drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -54,7 +54,9 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${navbarBackgroundColor} font-roboto text-sm font-semibold absolute top-0 left-0 right-0 z-50`}
+      className={`${navbarBackgroundColor} ${
+        loading && "shadow"
+      } font-roboto text-sm font-semibold absolute top-0 left-0 right-0 z-50`}
     >
       <Container>
         <div className="flex items-center justify-between py-4">

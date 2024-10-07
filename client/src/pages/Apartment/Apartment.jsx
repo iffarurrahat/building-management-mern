@@ -98,7 +98,7 @@ const Apartment = () => {
             onClick={() => handlePaginationButton(currentPage - 1)}
             className="px-2 sm:px-4 py-1 sm:py-2 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-primary  hover:text-white"
           >
-            <div className="flex items-center ">
+            <div className="flex items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-3 sm:w-6 h-3 sm:h-6 mx-1 rtl:-scale-x-100"
