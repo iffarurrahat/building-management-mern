@@ -1,35 +1,35 @@
 [
   {
     "_id": "1",
-    "image": "https://i.ibb.co.com/NZb4FYM/user2.jpg",
+    "image": "https://i.ibb.co.com/6t7CLzk/user3.jpg",
     "rating": 5,
-    "name": "John Doe",
+    "name": "Meg Rayon",
     "review": "Excellent management team. Very responsive and attentive to all needs. The building maintenance is top-notch, and the facilities are always clean and well-kept."
   },
   {
     "_id": "2",
-    "image": "https://i.ibb.co.com/tmgqdmG/user3.jpg",
+    "image": "https://i.ibb.co.com/6nYZmVD/user2.jpg",
     "rating": 4,
-    "name": "Jane Smith",
+    "name": "Jon Smith",
     "review": "Great service overall. The staff is friendly, and the building is in good condition. However, there were some minor issues with the elevator recently."
   },
   {
     "_id": "3",
-    "image": "https://i.ibb.co.com/VH3ZzW4/user1.jpg",
+    "image": "https://i.ibb.co.com/vYLNtNp/user1.jpg",
     "rating": 3,
     "name": "Michael Brown",
     "review": "Average experience. The management could improve communication and responsiveness. Some amenities are not always available as promised, but the location is convenient."
   },
   {
     "_id": "4",
-    "image": "https://i.ibb.co.com/vkvMCRL/abdul-hasim.png",
+    "image": "https://i.ibb.co.com/Y76J3mH/yahex.jpg",
     "rating": 5,
     "name": "Emily Johnson",
     "review": "Outstanding management! They go above and beyond to ensure resident satisfaction. The building is modern, well-maintained, and the community is friendly and welcoming."
   },
   {
     "_id": "5",
-    "image": "https://i.ibb.co.com/CK8BsSg/ab-murad.png",
+    "image": "https://i.ibb.co.com/PGnjs6C/ab-murad.png",
     "rating": 4,
     "name": "David Wilson",
     "review": "Very pleased with the management team and the quality of the building. The only downside is occasional noise from the street, but overall a great place to live."

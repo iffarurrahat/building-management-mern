@@ -21,7 +21,7 @@ const MyProfile = () => {
     },
   });
 
-  console.log("bookings-->", bookings);
+  // console.log("bookings-->", bookings);
 
   //
   const { data: userSingleData = [] } = useQuery({
@@ -31,7 +31,7 @@ const MyProfile = () => {
       return data;
     },
   });
-  console.log(userSingleData.status);
+  // console.log(userSingleData.status);
 
   if (isLoading || loading) return <Spinner />;
 

@@ -208,10 +208,11 @@ async function run() {
       res.send(result);
     });
 
-    // Get all rooms data from db
+    // Get all rooms data from db for pagination
     app.get("/rooms", async (req, res) => {
       const size = parseInt(req.query.size);
       const page = parseInt(req.query.page) - 1;
+      console.log(size, page);
 
       const result = await roomsCollection
         .find()

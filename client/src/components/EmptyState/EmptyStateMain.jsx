@@ -35,7 +35,6 @@ const EmptyStateMain = ({ title, pathname }) => {
 
 EmptyStateMain.propTypes = {
   title: PropTypes.string.isRequired,
-  // image: PropTypes.string.isRequired,
   pathname: PropTypes.string.isRequired,
   btn: PropTypes.string,
   route: PropTypes.string,

@@ -63,7 +63,9 @@ const PartnerSection = () => {
           {images.map((item, idx) => (
             <SwiperSlide key={idx}>
               <div className="flex justify-center slider-active-color">
-                <img src={item.image} className="invert" alt="" />
+                <div className="">
+                  <img src={item.image} className="invert" alt="" />
+                </div>
               </div>
             </SwiperSlide>
           ))}

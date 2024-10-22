@@ -69,7 +69,7 @@ const Discover = () => {
                 environment tailored to your lifestyle
               </p>
               <Link to="/apartment">
-                <button className="bg-[#4C6275] text-white px-5 md:px-8 py-2.5 md:py-4 rounded mt-4 md:mt-8 text-xs md:text-base font-medium">
+                <button className="bg-black text-white px-5 md:px-8 py-2.5 md:py-4 rounded mt-4 md:mt-8 text-xs md:text-base font-medium">
                   Book Now
                 </button>
               </Link>
