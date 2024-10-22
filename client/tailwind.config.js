@@ -20,7 +20,7 @@ export default {
       const newUtilities = {
         ".scrollbar-thin": {
           scrollbarWidth: "thin",
-          scrollbarColor: "rbg(31 29 29) white",
+          scrollbarColor: "#7B7B7B",
         },
         ".scrollbar-webkit": {
           "&::-webkit-scrollbar": {
@@ -28,10 +28,10 @@ export default {
             height: "8px",
           },
           "&::-webkit-scrollbar-track": {
-            background: "white",
+            background: "#424242",
           },
           "&::-webkit-scrollbar-thumb": {
-            backgroundColor: "rgb(31 41 55)",
+            backgroundColor: "#7B7B7B",
             borderRadius: "9999px",
             border: "1px solid transparent",
           },
