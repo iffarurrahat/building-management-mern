@@ -60,7 +60,7 @@ const Navbar = () => {
       } font-roboto text-sm font-semibold absolute top-0 left-0 right-0 z-50`}
     >
       <Container>
-        <div className="flex items-center justify-between py-4">
+        <div className="flex items-center justify-between py-4 md:py-0">
           <Link to="/">
             <img
               src={logoImg}
