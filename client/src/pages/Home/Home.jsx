@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <title>Building Management</title>
+        <title>Building Management | Apartment Rent Portal</title>
       </Helmet>
 
       <div>

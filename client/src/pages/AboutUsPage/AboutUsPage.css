@@ -1,6 +1,19 @@
-.bg-image{
-    background-image: url("../../assets/elements.png");
-    height: 100%;
+.elements-img{
+    position: absolute;
+    top: -80px;
+    left: -95px;
     width: 100%;
-    background-size: cover;
+    z-index: -2;
+}
+
+.elements-img::after{
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 0%;
+    left: 50%;
+    top: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) rotate(-45deg);
+    z-index: 1;
 }
