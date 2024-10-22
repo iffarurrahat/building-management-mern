@@ -76,10 +76,10 @@ const Navbar = () => {
               {open ? <RiCloseLine /> : <RiMenu2Line />}
             </div>
             <ul
-              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 rounded-lg ${
+              className={`md:flex items-center gap-14 absolute md:static mr-4 md:mr-0 md:pr-0 right-0 rounded-lg ${
                 open
-                  ? "py-5 px-8 text-center top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3.5 md:space-y-0"
-                  : "-right-60"
+                  ? "py-6 min-w-44 text-center top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3.5 md:space-y-0 duration-700"
+                  : "-top-60 py-6 min-w-44 space-y-3.5 md:space-y-0 text-center duration-0"
               }`}
             >
               {routes.map((route) => (

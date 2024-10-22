@@ -1,0 +1,6 @@
+.bg-image{
+    background-image: url("../../assets/elements.png");
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+}
