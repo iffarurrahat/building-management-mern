@@ -1,25 +1,25 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Home from "../pages/Home/Home";
-import SignUp from "../pages/Auth/SignUp";
-import SignIn from "../pages/Auth/SignIn";
-import Apartment from "../pages/Apartment/Apartment";
-import Blogs from "../pages/Blogs/Blogs";
-import DashboardLayout from "../layout/DashboardLayout";
-import MyProfile from "../pages/Dashboard/Common/MyProfile";
-import MakePayment from "../pages/Dashboard/Member/MakePayment";
-import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
-import Announcements from "../pages/Dashboard/Common/Announcements";
-import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
-import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
-import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests";
-import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
-import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
-import PrivateRoute from "./PrivateRoute";
-import DashboardDefaultRoute from "../pages/Dashboard/DashboardDefaultRoute";
-import ErrorPage from "../pages/ErrorPage";
 import AdminRoute from "./AdminRoute";
 import MemberRoute from "./MemberRoute";
+import SignUp from "../pages/Auth/SignUp";
+import PrivateRoute from "./PrivateRoute";
+import SignIn from "../pages/Auth/SignIn";
+import ErrorPage from "../pages/ErrorPage";
+import Apartment from "../pages/Apartment/Apartment";
+import DashboardLayout from "../layout/DashboardLayout";
+import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
+import MyProfile from "../pages/Dashboard/Common/MyProfile";
+import MakePayment from "../pages/Dashboard/Member/MakePayment";
+import AdminProfile from "../pages/Dashboard/Admin/AdminProfile";
+import ManageMembers from "../pages/Dashboard/Admin/ManageMembers";
+import ManageCoupons from "../pages/Dashboard/Admin/ManageCoupons";
+import Announcements from "../pages/Dashboard/Common/Announcements";
+import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
+import MakeAnnouncement from "../pages/Dashboard/Admin/MakeAnnouncement";
+import AgreementRequests from "../pages/Dashboard/Admin/AgreementRequests";
+import DashboardDefaultRoute from "../pages/Dashboard/DashboardDefaultRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
         element: <Apartment />,
       },
       {
-        path: "/blogs",
-        element: <Blogs />,
+        path: "/about",
+        element: <AboutUsPage />,
       },
     ],
   },

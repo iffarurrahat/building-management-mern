@@ -43,12 +43,13 @@ const Navbar = () => {
   const routes = [
     { id: 1, path: "/", name: "Home" },
     { id: 2, path: "/apartment", name: "Apartment" },
-    // { id: 5, path: "/blogs", name: "Blogs" },
-    { id: 3, path: "/dashboard", name: "Dashboard" },
+    { id: 5, path: "/about", name: "About US" },
   ];
 
-  // Conditional rendering of login
-  if (!user) {
+  // Conditionally add dashboard route if user is logged in
+  if (user) {
+    routes.push({ id: 3, path: "/dashboard", name: "Dashboard" });
+  } else {
     routes.push({ id: 4, path: "/signin", name: "Signin" });
   }
 
@@ -69,16 +70,16 @@ const Navbar = () => {
           </Link>
           <div>
             <div
-              className="md:hidden text-3xl text-primary cursor-pointer"
+              className="md:hidden text-xl sm:text-2xl text-primary cursor-pointer"
               onClick={() => setOpen(!open)}
             >
               {open ? <RiCloseLine /> : <RiMenu2Line />}
             </div>
             <ul
-              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0  rounded-lg ${
+              className={`md:flex items-center gap-14 absolute md:static duration-1000 mr-4 md:mr-0 right-0 rounded-lg ${
                 open
-                  ? "w-40 py-5 px-10 top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3.5 md:space-y-0"
-                  : "-top-60"
+                  ? "py-5 px-8 text-center top-12 shadow-lg md:shadow-transparent bg-white md:bg-transparent space-y-3.5 md:space-y-0"
+                  : "-right-60"
               }`}
             >
               {routes.map((route) => (
@@ -98,7 +99,7 @@ const Navbar = () => {
               ))}
 
               {user && (
-                <div className="">
+                <div className="flex justify-center">
                   <img
                     src={user?.photoURL}
                     className="border-2 border-primary cursor-pointer w-10 h-10 rounded-full p-[2px]"
