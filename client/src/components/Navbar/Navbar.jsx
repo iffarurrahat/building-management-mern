@@ -1,28 +1,17 @@
 import Drawer from "./Drawer";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import Container from "../ui/Container";
 import useAuth from "../../hooks/useAuth";
-import { useEffect, useState } from "react";
 import logoImg from "../../assets/logo.png";
+import { Link, NavLink } from "react-router-dom";
 import { RiCloseLine, RiMenu2Line } from "react-icons/ri";
-import { Link, NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const { user, logOut, setLoading, loading } = useAuth();
+  const { user, logOut, setLoading } = useAuth();
   // New state for drawer
   const [drawerOpen, setDrawerOpen] = useState(false);
-
-  const [navbarBackgroundColor, setNavbarBackgroundColor] = useState("");
-  const location = useLocation();
-  useEffect(() => {
-    // Update background color based on the current route
-    if (location.pathname === "/") {
-      setNavbarBackgroundColor("md:text-white");
-    } else {
-      setNavbarBackgroundColor("md:text-white");
-    }
-  }, [location.pathname]);
 
   // logout
   const handleSignOut = () => {
@@ -54,11 +43,7 @@ const Navbar = () => {
   }
 
   return (
-    <div
-      className={`${navbarBackgroundColor} ${
-        loading && "shadow"
-      } font-roboto text-sm font-semibold absolute top-0 left-0 right-0 z-50`}
-    >
+    <div className="font-roboto text-sm font-semibold absolute top-0 left-0 right-0 z-50 md:text-white">
       <Container>
         <div className="flex items-center justify-between py-4 md:py-0">
           <Link to="/">
@@ -83,7 +68,7 @@ const Navbar = () => {
               }`}
             >
               {routes.map((route) => (
-                <li key={route.id} className="">
+                <li key={route.id}>
                   <NavLink
                     to={route.path}
                     className={({ isActive }) =>
@@ -124,13 +109,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-/*
-
-className={({ isActive }) =>
-  isActive && route.name !== "Logout"
-    ? "border-2 border-primary md:border-white text-primary md:text-white text-[15px] px-3 py-1 rounded"
-    : ""
-}
-
-*/
