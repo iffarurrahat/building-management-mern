@@ -1,9 +1,10 @@
-import { HashLoader } from "react-spinners";
+import Lottie from "lottie-react";
+import SpinnerLottie from "../../../../public/spinner-loader.json";
 
 const Spinner = () => {
   return (
-    <div className="flex justify-center items-center min-h-[40vh] mt-20">
-      <HashLoader size={50} color="#8c52ff" />
+    <div className="flex justify-center items-center min-h-[10vh] mt-20">
+      <Lottie animationData={SpinnerLottie} loop={true}></Lottie>
     </div>
   );
 };
