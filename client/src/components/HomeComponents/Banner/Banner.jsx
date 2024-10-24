@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Slider from "./Slider";
 import toast from "react-hot-toast";
-import Spinner from "../../ui/Spinner/Spinner";
 
 const Banner = () => {
   const [slides, setSlides] = useState([]);
@@ -23,16 +22,13 @@ const Banner = () => {
   }, []);
 
   if (loading) {
-    // Render a loader while images are loading
+    // Show background color while loading, no text
     return (
-      <div className="flex justify-center items-center h-[450px] sm:h-[550px] md:h-[700px] lg:h-screen">
-        <p className="text-white text-lg">
-          <Spinner />
-        </p>
+      <div className="flex justify-center items-center h-[450px] sm:h-[550px] md:h-[700px] lg:h-screen bg-gray-800">
+        {/* No loading message, just background */}
       </div>
     );
   }
-
   return (
     <div>
       <Slider slides={slides} />

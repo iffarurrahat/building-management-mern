@@ -1,9 +1,9 @@
-import "./Preloader.css";
+import Spinner from "../Spinner/Spinner";
 
 const Preloader = () => {
   return (
-    <div className="preloader">
-      <div className="spinner"></div>
+    <div className="flex justify-center items-center h-screen">
+      <Spinner />
     </div>
   );
 };

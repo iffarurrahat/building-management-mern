@@ -12,8 +12,8 @@ const port = process.env.PORT || 5000;
 // middleware
 const corsOptions = {
   origin: [
-    // 'https://sparkly-haupia-877131.netlify.app',
-    // 'https://building-management-2241.surge.sh'
+    // "https://sparkly-haupia-877131.netlify.app",
+    // "https://building-management-2241.surge.sh",
     "http://localhost:5173",
     "http://localhost:5174",
   ],
@@ -212,7 +212,6 @@ async function run() {
     app.get("/rooms", async (req, res) => {
       const size = parseInt(req.query.size);
       const page = parseInt(req.query.page) - 1;
-      console.log(size, page);
 
       const result = await roomsCollection
         .find()
@@ -389,9 +388,9 @@ async function run() {
 
     // Send a ping to confirm a successful connection
     // await client.db("admin").command({ ping: 1 });
-    console.log(
-      "Pinged your deployment. You successfully connected to MongoDB!"
-    );
+    // console.log(
+    //   "Pinged your deployment. You successfully connected to MongoDB!"
+    // );
   } finally {
     // Ensures that the client will close when you finish/error
   }
