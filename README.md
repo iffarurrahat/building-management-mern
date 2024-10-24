@@ -2,7 +2,7 @@
 
 #### 🔗 Website Live URL One: [Building Management](https://building-management-2241.surge.sh/)
 
-#### 🔗 Website Live URL Two: [Building Management](https://sparkly-haupia-877131.netlify.app/)
+#### 🔗 Website Live URL Two: [Building Management](https://building-management-2241.netlify.app/)
 
 <!-- #### 📢 Admin User Email: user.admin201@gmail.com -->
 

@@ -7,12 +7,23 @@ import Preloader from "../components/ui/Preloader/Preloader";
 
 const Main = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const navigation = useNavigation(); // Detect route changes
-  const { loading } = useAuth(); // Replace with your auth logic
+  const navigation = useNavigation();
+  const { loading } = useAuth();
+
+  // Combine loading logic: based on both authentication and navigation
+  useEffect(() => {
+    // Set loading state based on both user loading and navigation
+    if (loading || navigation.state === "loading") {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
+  }, [loading, navigation.state]);
 
   useEffect(() => {
+    // Handle initial window load
     const handleLoad = () => {
-      setIsLoading(false); // Hide preloader after the page is loaded
+      setIsLoading(false);
     };
 
     window.addEventListener("load", handleLoad);
@@ -21,24 +32,6 @@ const Main = () => {
       window.removeEventListener("load", handleLoad);
     };
   }, []);
-
-  useEffect(() => {
-    // Show the Preloader while the authentication state is loading
-    if (loading) {
-      setIsLoading(true);
-    } else {
-      setIsLoading(false);
-    }
-  }, [loading]);
-
-  useEffect(() => {
-    // Show the Preloader when navigation (route change) is in progress
-    if (navigation.state === "loading") {
-      setIsLoading(true);
-    } else {
-      setIsLoading(false);
-    }
-  }, [navigation.state]);
 
   return (
     <div>

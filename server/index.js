@@ -12,10 +12,10 @@ const port = process.env.PORT || 5000;
 // middleware
 const corsOptions = {
   origin: [
-    // "https://sparkly-haupia-877131.netlify.app",
-    // "https://building-management-2241.surge.sh",
-    "http://localhost:5173",
-    "http://localhost:5174",
+    "https://sparkly-haupia-877131.netlify.app",
+    "https://building-management-2241.surge.sh",
+    // "http://localhost:5173",
+    // "http://localhost:5174",
   ],
   credentials: true,
   optionSuccessStatus: 200,
